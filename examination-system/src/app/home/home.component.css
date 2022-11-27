@@ -1,0 +1,18 @@
+.top{
+    height: 500px;
+    padding-top: 10vh;
+    text-align: center;
+    background: rgb(44,146,255);
+    background: linear-gradient(180deg, rgba(44,146,255,1) 0%, rgba(165,211,241,1) 70%, rgba(255,255,255,1) 100%);
+}
+
+.card{
+    margin: auto;
+}
+
+h1{
+    padding: 20px;
+    font-family: 'League Mono', sans-serif;
+                                                
+}
+
