@@ -1,18 +1,112 @@
 .top{
-    height: 500px;
+    height: 100vh;
     padding-top: 10vh;
     text-align: center;
     background: rgb(44,146,255);
     background: linear-gradient(180deg, rgba(44,146,255,1) 0%, rgba(165,211,241,1) 70%, rgba(255,255,255,1) 100%);
 }
 
+.bottom{
+    background: rgb(17,16,106);
+    background: linear-gradient(0deg, rgba(17,16,106,1) 0%, rgba(66,157,252,1) 45%, rgba(255,255,255,1) 100%);
+}
+
+.last {
+    height: 200px;
+}
 .card{
     margin: auto;
+    
+}
+
+.top .card .row{
+    height: 200px;
+}
+
+.card div.row{
+    -webkit-box-shadow: 0px 0px 10px 1px rgb(39 111 148);
+    -moz-box-shadow: 0px 0px 10px 1px rgb(39 111 148);
+    box-shadow: 0px 0px 10px 1px rgb(39 111 148);
 }
 
 h1{
+    color: white;
     padding: 20px;
     font-family: 'League Mono', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;                           
+}
+
+.top div div h2{
+    padding-top: 17px;
+}
+
+
+.left-card{
+    align-items: center;
+    font-family: 'NRT Reg', sans-serif;
                                                 
+}
+
+.right-card{
+    align-items: center;
+}
+
+.left-card .container{
+    align-items: center;
+}
+
+.left-card .container div{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.card-body .line{
+    border-left: 2px solid #afafb4;
+    width: 20px;
+}
+
+button{
+    width: 70%;
+    border-radius: 18px;
+    /* background: linear-gradient(rgb(53,151,253), rgb(68 125 185)); */
+    background-color: rgb(0,161,255);
+    -webkit-box-shadow: 0px 0px 10px 1px rgb(39 111 148);
+    -moz-box-shadow: 0px 0px 10px 1px rgb(39 111 148);
+    box-shadow: 0px 0px 2px 1px rgb(39 111 148);
+}
+
+@media screen and (max-width:767px) {
+    .top{
+        height: 170vh;
+    }
+
+    .card-body .line{
+        border-left: 0;
+        border-top: 2px solid #afafb4;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .card-body{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:1000px) {
+
+
+    .left-card .container{
+        flex-direction: column;
+    }
+    .middle div{
+        flex-direction: column;
+    }
+    .middle div img{
+        width: 100%;
+    }
+    .top .card .row{
+        height: auto;
+    }
 }
 

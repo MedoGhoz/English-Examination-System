@@ -1,3 +1,17 @@
 section {
     background-color: rgb(32,32,42);
 }
+
+div.row div.col{
+    width: 50%;
+}
+
+ul li a{
+    text-decoration: none;
+}
+
+@media screen and (max-width:760px){
+    div.row {
+        flex-direction: column;
+    }
+}
