@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  display:string ="block";
+  constructor(private activeRoute:ActivatedRoute) { 
+    
+  }
 
   ngOnInit(): void {
+    if(window.location.href.toString().includes("exam")){
+      this.display = "none";
+    }
   }
 
 }
