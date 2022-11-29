@@ -1,0 +1,25 @@
+<div class="result">
+    <h1>RESULT</h1>
+    <h3>{{result}}</h3>
+</div>
+<div *ngFor="let question of questions; let i = index">
+    <div class="card text-center">
+        <div class="card-header">
+            {{question.question}}
+        </div>
+        <div class="card-body">
+            <form>
+                <div *ngFor="let choice of question.choices" class="choice">
+                    <input [id]="choice" [value]="choice" type="checkbox" name="selection"
+                        [checked]="(choice==question.answer || choice==answers[i])?true:false"
+                        [style.accent-color]="(choice==question.answer)?'green':'red'" class="checkbox">&nbsp;&nbsp;
+                    <label [for]="choice">{{choice}}</label>
+                </div>
+            </form>
+
+        </div>
+        <!-- <div class="card-footer text-muted">
+            2 days ago
+        </div> -->
+    </div>
+</div>

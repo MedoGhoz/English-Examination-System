@@ -1,10 +1,10 @@
 <section class="container">
     <div class="row">
         <div class="progress col-11 ">
-            <div class="progress-bar" [style.width]="width+'%'"></div>
+            <div class="progress-bar" [style.width]="(width+1)*10+'%'"></div>
         </div>
         <div class="col question-number">
-            <p>1/10</p>
+            <p>{{width+1}}/10</p>
         </div>
     </div>
 
@@ -13,11 +13,11 @@
             <span>{{minutes}}:{{seconds < 10 ? '0' +seconds:seconds}}</span>
         </div>
         <div class="question-type">
-            <img src="assets/quote.png" height="40px" width="40px">
+            <img [src]="logoPath" height="40px" width="40px">
         </div>
     </div>
     <div class="question d-flex row container">
-        <div class="col-6" [style.display]="display">
+        <div class="col" [style.display]="display">
             <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
@@ -29,18 +29,18 @@
                 Aldus PageMaker including versions of Lorem Ipsum.
             </p>
         </div>
-        <div class="col-6" [style.width]="cardWidth+'%'">
+        <div class="col">
             <div class="card text-center">
                 <div class="card-header">
-                    {{questions[0].question}}
+                    {{questions[width].question}}
                 </div>
                 <div class="card-body">
                     <form>
-                        <div *ngFor="let choice of questions[0].choices" class="choice">
-                            <input [id]="choice" type="radio" name="selection">&nbsp;&nbsp;
+                        <div *ngFor="let choice of questions[width].choices" class="choice">
+                            <input [id]="choice" [value]="choice" type="radio" name="selection">&nbsp;&nbsp;
                             <label [for]="choice">{{choice}}</label>
                         </div>
-                        <input type="button" (click)="getSelection()">
+                        <input type="button" (click)="getSelection()" value="Next" class="nextButton">
                     </form>
 
                 </div>

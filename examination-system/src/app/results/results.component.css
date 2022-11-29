@@ -1,0 +1,7 @@
+div{
+    pointer-events: none;
+}
+
+.result{
+    text-align: center;
+}

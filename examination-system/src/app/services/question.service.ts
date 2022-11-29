@@ -6,13 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class QuestionService {
 
+  answers!:any;
+
   questions:any[] = [
     {
       "question": "I ______ bus on Mondays.",
       "choices": ["'m going to work with","'m going to work by","go to work with","go to work by"],
       "answer": "go to work by",
       "type": "MCQ",
-      "category": "Reading",
+      "category": "Grammar",
       "level": "A1",
       "authorId": 1
     },
@@ -242,5 +244,11 @@ export class QuestionService {
 
   getQuestions(){
     return this.questions;
+  }
+  setAnswers(answer:any){
+    this.answers = answer;
+  }
+  getAnswers(){
+    return this.answers;
   }
 }

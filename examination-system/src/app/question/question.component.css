@@ -44,6 +44,10 @@
     align-items: center;
 }
 
+.nextButton{
+    width: 30%;
+}
+
 @media screen and (max-width:550px) {
     .question-timer{
         width: 45%;
