@@ -21,14 +21,7 @@ export class ResultsComponent implements OnInit {
       if(this.answers[i] == this.questions[i].answer){
         this.result++;
       }
-    }
-    for(let i =0; i < this.answers.length; i++){
-      let checkBox = document.querySelector(`input[value="${this.answers[i]}"]`);
-      console.log(checkBox);
-      
-    }
-    console.log(this.answers);
-    
+    }    
   }
 
 }

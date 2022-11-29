@@ -38,6 +38,7 @@ export class QuestionComponent implements OnInit {
         this.seconds = (this.timeLeft % 60);
       } else {
         this.width = 0;
+        this.router.navigate(['/result']);
       }
     },1000)
   }
@@ -52,7 +53,6 @@ export class QuestionComponent implements OnInit {
       this.answers.push(checkRadio?.getAttribute("id"));
     }
     if(nextButton?.getAttribute("value") == "finish"){
-      console.log(this.answers);
       this.questionService.setAnswers(this.answers);
       this.router.navigate(['/result']);
     }
@@ -74,7 +74,6 @@ export class QuestionComponent implements OnInit {
   
   showQuestion(){
     if(this.questions[this.width].category === "Grammar" || this.questions[0].category === "vocabulary"){
-      console.log(this.questions[this.width].category)
       this.display = "none";
     }else{
       this.display = "block";
