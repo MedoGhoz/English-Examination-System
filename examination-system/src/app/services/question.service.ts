@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class QuestionService {
 
-  answers!:any;
+  answers:any[] = [""];
 
   questions:any[] = [
     {
