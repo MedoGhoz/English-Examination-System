@@ -69,6 +69,7 @@ export class QuestionComponent implements OnInit {
     }
     if(this.width == 9){
       nextButton?.setAttribute("value","finish");
+      nextButton?.classList.add('redButton');
     }
   }
   
