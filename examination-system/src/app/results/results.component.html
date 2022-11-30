@@ -1,11 +1,12 @@
 <div class="result">
-    <h1>RESULT</h1>
-    <h3>{{result}}</h3>
+    <div class="score container">
+        <div>{{result}} / 10</div>
+    </div>
 </div>
-<div *ngFor="let question of questions; let i = index">
+<div *ngFor="let question of questions; let i = index" class="container preview">
     <div class="card text-center">
         <div class="card-header">
-            {{question.question}}
+            ({{i + 1}}) {{question.question}} <span class="not-answered">{{answers[i] =="" ? "Not Answered":""}}</span>
         </div>
         <div class="card-body">
             <form>

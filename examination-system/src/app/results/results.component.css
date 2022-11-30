@@ -5,3 +5,43 @@ div{
 .result{
     text-align: center;
 }
+
+.preview{
+    margin-top: 20px;
+    width: 50%;
+}
+.preview div{
+    text-align: left;
+}
+
+.not-answered{
+    color: red;
+    float: right;
+}
+
+.score{
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    top: 60px;
+    right: 35px;
+    z-index: 1;
+    padding-top: 22px;
+    background-color: rgb(43,145,255);
+}
+
+@media screen and (max-width:500px) {
+    .score{
+        width: 60px;
+        height: 60px;
+        right: 15px;
+        font-size: small;
+    }
+}
+
+@media screen and (max-width:1300px) {
+    .preview{
+        width: 100%;
+    }
+}
