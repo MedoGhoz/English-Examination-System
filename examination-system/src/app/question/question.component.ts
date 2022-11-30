@@ -91,8 +91,9 @@ export class QuestionComponent implements OnInit {
       this.showQuestion();
       this.changelogo();
     }
-    if (this.width == 9) {
-      nextButton?.setAttribute("value", "finish");
+    if(this.width == 9){
+      nextButton?.setAttribute("value","finish");
+      nextButton?.classList.add('redButton');
     }
   }
 
