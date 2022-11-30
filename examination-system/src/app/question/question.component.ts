@@ -8,31 +8,53 @@ import { QuestionService } from '../services/question.service';
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnInit {
-  public width:number = 0;
-  minutes:number = 10;
-  seconds:number = 0;
-  timeLeft:number = 600;
-  interval:any;
-  questions:any;
-  question:any;
-  display:string = "block";
-  logoPath!:string;
-  type!:string;
-  answers:any[] =[];
-  constructor(private questionService:QuestionService, private router:Router) {
+  width: number = 0;
 
-   }
+  minutes: number = 5;
+  seconds: number = 0;
+  timeLeft: number = 300;
+  interval: any;
+
+  questions: any[] = [];
+  apiQuestions!: any[];
+
+  display: string = "block";
+  showParagraph: boolean = false;
+  logoPath!: string;
+  type!: string;
+  answers: any[] = [];
+  iframeMarkup!:string;
+
+  constructor(private questionService: QuestionService, private router: Router) {
+
+  }
 
   ngOnInit(): void {
     this.startTimer();
-    this.questions = this.questionService.getQuestions();
+    this.apiQuestions = this.questionService.getQuestions();
+    for (let i = 0; i < this.apiQuestions.length; i++) {
+      if ("questions" in this.apiQuestions[i]) {
+        for (let j = 0; j < this.apiQuestions[i].questions.length; j++) {
+          let obj = JSON.parse(JSON.stringify(this.apiQuestions[i]));
+          obj.question = this.apiQuestions[i].questions[j].question;
+          obj.choices = this.apiQuestions[i].questions[j].choices;
+          obj.answer = this.apiQuestions[i].questions[j].answer;
+          obj.type = this.apiQuestions[i].questions[j].type;
+          this.questions.push(obj);
+        }
+      } else {
+        this.questions.push(this.apiQuestions[i]);
+
+      }
+
+    }
     this.showQuestion();
     this.changelogo();
   }
 
   startTimer() {
     this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
+      if (this.timeLeft > 0) {
         this.timeLeft--;
         this.minutes = Math.floor((this.timeLeft / 60));
         this.seconds = (this.timeLeft % 60);
@@ -40,25 +62,27 @@ export class QuestionComponent implements OnInit {
         this.width = 0;
         this.router.navigate(['/result']);
       }
-    },1000)
+    }, 1000)
   }
 
-   getSelection() { 
+  getSelection() {
     let nextButton = document.querySelector(".nextButton");
     let checkRadio = document.querySelector('input[name="selection"]:checked');
-    if(checkRadio == null){
+    if (checkRadio == null) {
       this.answers.push("");
     }
-    else{
+    else {
       this.answers.push(checkRadio?.getAttribute("id"));
     }
-    if(nextButton?.getAttribute("value") == "finish"){
+    if (nextButton?.getAttribute("value") == "finish") {
+      console.log(this.answers);
+
       this.questionService.setAnswers(this.answers);
       this.router.navigate(['/result']);
     }
-    if(this.width < 9){
-      if(checkRadio == this.questions[this.width].answer) {
-        
+    if (this.width < 9) {
+      if (checkRadio == this.questions[this.width].answer) {
+
       }
       else {
 
@@ -67,33 +91,49 @@ export class QuestionComponent implements OnInit {
       this.showQuestion();
       this.changelogo();
     }
-    if(this.width == 9){
-      nextButton?.setAttribute("value","finish");
+    if (this.width == 9) {
+      nextButton?.setAttribute("value", "finish");
     }
   }
-  
-  showQuestion(){
-    if(this.questions[this.width].category === "Grammar" || this.questions[0].category === "vocabulary"){
+
+  showQuestion() {
+    if (this.questions[this.width].category === "Grammar" || this.questions[0].category === "vocabulary") {
       this.display = "none";
-    }else{
+    } else {
       this.display = "block";
     }
   }
 
-  changelogo(){
+  changelogo() {
     this.type = this.questions[this.width].category;
-    if(this.type.toLocaleLowerCase() == "grammar"){
+    if (this.type.toLocaleLowerCase() == "grammar") {
       this.logoPath = "assets/quote.png"
     }
-    else if(this.type.toLocaleLowerCase() == "vocabulary"){
+    else if (this.type.toLocaleLowerCase() == "vocabulary") {
       this.logoPath = "assets/block.png"
     }
-    else if(this.type.toLocaleLowerCase() == "listening"){
-      this.logoPath = "assets/headphone.png"
+    else if (this.type.toLocaleLowerCase() == "listening") {
+      this.logoPath = "assets/headphone.png";
+      const videoId = this.getId(this.questions[this.width].header);
+      this.iframeMarkup = '<iframe width="560" height="315" src="//www.youtube.com/embed/' 
+    + videoId + '" frameborder="0" allowfullscreen></iframe>';
+    let node = document.getElementById("audio");
+    node!.innerHTML = this.iframeMarkup;
     }
-    else if(this.type.toLocaleLowerCase() == "reading"){
+    else if (this.type.toLocaleLowerCase() == "reading") {
       this.logoPath = "assets/open-book.png"
     }
   }
-  
+
+  getId(url:string) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? match[2]
+      : null;
+}
+    
+
+
 }
