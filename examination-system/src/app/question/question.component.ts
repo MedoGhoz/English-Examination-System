@@ -23,7 +23,7 @@ export class QuestionComponent implements OnInit {
   logoPath!: string;
   type!: string;
   answers: any[] = [];
-  iframeMarkup!:string;
+  iframeMarkup!: string;
 
   constructor(private questionService: QuestionService, private router: Router) {
 
@@ -32,22 +32,7 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
     this.startTimer();
     this.apiQuestions = this.questionService.getQuestions();
-    for (let i = 0; i < this.apiQuestions.length; i++) {
-      if ("questions" in this.apiQuestions[i]) {
-        for (let j = 0; j < this.apiQuestions[i].questions.length; j++) {
-          let obj = JSON.parse(JSON.stringify(this.apiQuestions[i]));
-          obj.question = this.apiQuestions[i].questions[j].question;
-          obj.choices = this.apiQuestions[i].questions[j].choices;
-          obj.answer = this.apiQuestions[i].questions[j].answer;
-          obj.type = this.apiQuestions[i].questions[j].type;
-          this.questions.push(obj);
-        }
-      } else {
-        this.questions.push(this.apiQuestions[i]);
-
-      }
-
-    }
+    this.formatQuestions()
     this.showQuestion();
     this.changelogo();
   }
@@ -91,8 +76,8 @@ export class QuestionComponent implements OnInit {
       this.showQuestion();
       this.changelogo();
     }
-    if(this.width == 9){
-      nextButton?.setAttribute("value","finish");
+    if (this.width == 9) {
+      nextButton?.setAttribute("value", "finish");
       nextButton?.classList.add('redButton');
     }
   }
@@ -105,6 +90,24 @@ export class QuestionComponent implements OnInit {
     }
   }
 
+  formatQuestions(){
+    for (let i = 0; i < this.apiQuestions.length; i++) {
+      if ("questions" in this.apiQuestions[i]) {
+        for (let j = 0; j < this.apiQuestions[i].questions.length; j++) {
+          let obj = JSON.parse(JSON.stringify(this.apiQuestions[i]));
+          obj.question = this.apiQuestions[i].questions[j].question;
+          obj.choices = this.apiQuestions[i].questions[j].choices;
+          obj.answer = this.apiQuestions[i].questions[j].answer;
+          obj.type = this.apiQuestions[i].questions[j].type;
+          this.questions.push(obj);
+        }
+      } else {
+        this.questions.push(this.apiQuestions[i]);
+      }
+    }
+  }
+
+
   changelogo() {
     this.type = this.questions[this.width].category;
     if (this.type.toLocaleLowerCase() == "grammar") {
@@ -115,26 +118,28 @@ export class QuestionComponent implements OnInit {
     }
     else if (this.type.toLocaleLowerCase() == "listening") {
       this.logoPath = "assets/headphone.png";
-      const videoId = this.getId(this.questions[this.width].header);
-      this.iframeMarkup = '<iframe width="560" height="315" src="//www.youtube.com/embed/' 
-    + videoId + '" frameborder="0" allowfullscreen></iframe>';
-    let node = document.getElementById("audio");
-    node!.innerHTML = this.iframeMarkup;
+      /*convert the youtube link to iframe and do not reload it in every question*/
+      if (this.width == 0 || this.questions[this.width].header != this.questions[this.width - 1].header) {
+
+        const videoId = this.getId(this.questions[this.width].header);
+        this.iframeMarkup = '<iframe width="100%" height="250" src="//www.youtube.com/embed/'
+          + videoId + '" frameborder="0" allowfullscreen></iframe>';
+        let node = document.getElementById("audio");
+        node!.innerHTML = this.iframeMarkup;
+      }
     }
     else if (this.type.toLocaleLowerCase() == "reading") {
       this.logoPath = "assets/open-book.png"
     }
   }
 
-  getId(url:string) {
+
+  getId(url: string) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
 
     return (match && match[2].length === 11)
       ? match[2]
       : null;
-}
-    
-
-
+  }
 }

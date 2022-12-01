@@ -26,7 +26,7 @@
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe> -->
-                <div id="audio"></div>
+                <div id="audio" class="video"></div>
         </div>
         <div class="col">
             <div class="card text-center">
@@ -35,9 +35,9 @@
                 </div>
                 <div class="card-body">
                     <form>
-                        <div *ngFor="let choice of questions[width].choices" class="choice">
-                            <input [id]="choice" [value]="choice" type="radio" name="selection">&nbsp;&nbsp;
-                            <label [for]="choice">{{choice}}</label>
+                        <div *ngFor="let choice of questions[width].choices" class="choice row">
+                            <input [id]="choice" [value]="choice" type="radio" name="selection" class="choice-radio col-1">&nbsp;&nbsp;
+                            <label [for]="choice" class="choice-label col">{{choice}}</label>
                         </div>
                         <input type="button" (click)="getSelection()" value="next" class="nextButton">
                     </form>

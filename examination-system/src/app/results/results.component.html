@@ -4,6 +4,10 @@
     </div>
 </div>
 <div *ngFor="let question of questions; let i = index" class="container preview">
+    <div class="card question-header" *ngIf="question.first">
+        <div *ngIf="question.category.toLocaleLowerCase() == 'reading'" class="card-header">{{question.header}}</div>
+        <div *ngIf="question.category.toLocaleLowerCase() == 'listening'" [id]="i" class="video"></div>
+    </div>
     <div class="card text-center">
         <div class="card-header">
             ({{i + 1}}) {{question.question}} <span class="not-answered">{{answers[i] =="" ? "Not Answered":""}}</span>
@@ -17,10 +21,7 @@
                     <label [for]="choice">{{choice}}</label>
                 </div>
             </form>
-
         </div>
-        <!-- <div class="card-footer text-muted">
-            2 days ago
-        </div> -->
     </div>
+    <hr *ngIf="i < questions.length - 1 && questions[i].header != questions[i+1].header">
 </div>

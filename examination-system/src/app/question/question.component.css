@@ -1,18 +1,3 @@
-@media screen and (max-width:550px) {
-    .question-timer{
-        width: 45%;
-    }
-}
-
-@media screen and (max-width:1000px) {
-    .question{
-        flex-direction: column;
-        height: 100%;
-    }
-    .question div{
-        width: 100%;
-    }
-}
 
 .progress{
     margin: auto;
@@ -33,6 +18,22 @@
 
 .choice{
     text-align: left;
+}
+
+.choice-label{
+    display: block;
+    width: 50%;
+    /* float: left; */
+    margin-left: 7px;
+}
+
+.choice-radio{
+    padding-top: 10px;
+}
+
+iframe{
+    width: 500px;
+    height: 350px;
 }
 
 .question-type{
@@ -70,7 +71,7 @@
 }
 .card {
     box-shadow: 0px 0px 5px 0.5px rgb(186, 186, 186);
-
+    
 }
 .choice{
     padding-left: 2%;
@@ -79,19 +80,43 @@
     background-color: rgba(13, 109, 253, 0.098);
     border: 2px solid #1C3EFF;
     border-radius: 9px;
-
+    /* height: fit-content; */
     
     margin-bottom: 1%;
-
+    
 }
 
 .choice:hover{
     box-shadow: 0px 0px 6px 0.2px rgb(13,110,253);
-
+    
 }
 
 .redButton:hover{
     background-color: rgb(251, 155, 155);
     border-color: rgb(254, 86, 86);
+    
+}
 
+@media screen and (max-width:400px) {
+    .choice-label{
+        font-size: smaller;
+    }
+    .row{
+        padding: 40px 0px 20px 0px;
+    }
+}
+@media screen and (max-width:550px) {
+    .question-timer{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .question{
+        flex-direction: column;
+        height: 100%;
+    }
+    .question div{
+        width: 100%;
+    }
 }

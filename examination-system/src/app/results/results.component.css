@@ -19,6 +19,16 @@ div{
     float: right;
 }
 
+.question-header{
+    margin-bottom: 20px;
+}
+
+hr{
+    border-top: 3px solid;
+    opacity: 1;
+    border-color: rgb(82,167,255);
+}
+
 .score{
     position: fixed;
     width: 70px;
@@ -35,6 +45,7 @@ div{
     background: rgb(44,148,255);
     background: linear-gradient(311deg, rgba(44,148,255,1) 47%, rgba(255,255,255,1) 100%);
 }
+
 
 @media screen and (max-width:500px) {
     .score{
