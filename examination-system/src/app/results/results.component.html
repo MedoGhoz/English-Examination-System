@@ -16,8 +16,8 @@
             <form>
                 <div *ngFor="let choice of question.choices" class="choice">
                     <input [id]="choice" [value]="choice" type="checkbox" name="selection"
-                        [checked]="(choice==question.answer || choice==answers[i])?true:false"
-                        [style.accent-color]="(choice==question.answer)?'green':'red'" class="checkbox">&nbsp;&nbsp;
+                        [checked]="(choice.trim()==question.answer.trim() || choice.trim()==answers[i])?true:false"
+                        [style.accent-color]="(choice.trim()==question.answer.trim())?'green':'red'" class="checkbox">&nbsp;&nbsp;
                     <label [for]="choice">{{choice}}</label>
                 </div>
             </form>

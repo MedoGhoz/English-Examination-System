@@ -31,10 +31,15 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.startTimer();
-    this.apiQuestions = this.questionService.getQuestions();
-    this.formatQuestions()
-    this.showQuestion();
-    this.changelogo();
+    this.questionService.getQuestions().subscribe({next:(data:any)=>{
+      console.log(data);
+      this.apiQuestions = data.questions;
+      
+      this.formatQuestions()
+      this.showQuestion();
+      this.changelogo();
+    }})
+    
   }
 
   startTimer() {
@@ -83,7 +88,7 @@ export class QuestionComponent implements OnInit {
   }
 
   showQuestion() {
-    if (this.questions[this.width].category === "Grammar" || this.questions[0].category === "vocabulary") {
+    if (this.questions[this.width].category.toLocaleLowerCase() === "grammar" || this.questions[0].category.toLocaleLowerCase() === "vocabulary") {
       this.display = "none";
     } else {
       this.display = "block";
@@ -91,7 +96,7 @@ export class QuestionComponent implements OnInit {
   }
 
   formatQuestions(){
-    for (let i = 0; i < this.apiQuestions.length; i++) {
+    for (let i = 0; i < 10; i++) {
       if ("questions" in this.apiQuestions[i]) {
         for (let j = 0; j < this.apiQuestions[i].questions.length; j++) {
           let obj = JSON.parse(JSON.stringify(this.apiQuestions[i]));
