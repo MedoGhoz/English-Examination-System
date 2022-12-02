@@ -1,5 +1,5 @@
 div{
-    /* pointer-events: none; */
+    pointer-events: none;
 }
 
 .result{
