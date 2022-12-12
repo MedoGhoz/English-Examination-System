@@ -67,7 +67,7 @@ h1{
     width: 20px;
 }
 
-button{
+#start{
     width: 70%;
     border-radius: 18px;
     /* background: linear-gradient(rgb(53,151,253), rgb(68 125 185)); */
@@ -109,4 +109,98 @@ button{
         height: auto;
     }
 }
+/* carousel css */
+.carousel-item{
+ width: 100%; 
+ height: 50vh;  
+ padding-top: 15vh;
+ padding-left: 20%;
+ padding-right: 20%;
+}
+.carousel-inner{
+    padding-left:10%;
+    padding-right:10%;
 
+
+}
+.card-text.carousel{
+    font-size: 3rem;
+    float: right;
+}
+
+
+.d-block{
+    padding-left: 17%;
+margin-bottom: 3%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+#start-carousel{
+    width: 70%;
+    margin-left: 20%;}
+.carousel-control-next{
+    background-color: rgb(226, 226, 226);
+}
+.carousel-control-next:hover{
+    background-color:rgb(43,145,255);
+}
+.carousel-control-prev{
+    background-color: rgb(226, 226, 226);
+}
+.carousel-control-prev:hover{
+    background-color:rgb(43,145,255);
+}
+/* responsiveness */
+@media screen and (max-width:767px) {
+    .top{
+        height: 170vh;
+    }
+    .card-text.carousel{
+        flex-direction: column;
+    }
+    .carousel-item{
+        width: 100%; 
+        height: 50vh;
+        padding-right: 30%;
+        align-content: space-around;
+        
+       }
+     
+    .card-text.carousel{
+        font-size:larger;
+        float: left;
+    }
+    .col-md-4.d-flex.left-card.carousel{
+        margin-bottom:20px ;
+    }
+    
+}
+
+@media screen and (max-width:1000px) {
+
+    .top{
+        height: 170vh;
+    }
+    .card-text.carousel{
+        flex-direction: column;
+    }
+    /* .carousel-item{
+        width: 100%; 
+        height: 50vh;
+        padding-right: 30%;
+        align-content: space-around;
+        
+       }
+      */
+    .card-text.carousel{
+        font-size:larger;
+        float: left;
+    }
+    .col-md-4.d-flex.left-card.carousel{
+        padding-right:10% ;
+    }
+   
+}
+/* end of carousel css */

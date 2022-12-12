@@ -22,7 +22,7 @@
           <div>
             <p class="card-text">Test your reading, listening skills and grammer, vocabulary
               knowledge with a quick limited time exam and get your results.</p>
-            <button class="btn btn-primary" type="submit" [routerLink] = "['/exam']" >Start</button>
+            <button id='start' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
           </div>
         </div>
       </div>
@@ -50,13 +50,155 @@
           <div>
             <p class="card-text">Test your reading, listening skills and grammer, vocabulary
               knowledge with random infinite questions. Never stop testing.</p>
-            <button class="btn btn-primary" type="submit">Start</button>
+            <button id='start' class="btn btn-primary" type="submit">Start</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- carousel -->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class='slide1 d-block w-100 h-80'>
+        
+        <!--card-->
+        <div class="row g-0">
+          <div class="col-md-4 d-flex left-card carousel">
+            <div class="container d-flex carousel">
+              <div>
+                <img src="assets/open-book.png" height="100px" width="100px">
+              </div>
+              <div>
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 d-flex right-card">
+            <div class="card-body d-flex text">
+              <div class="line">
+    
+              </div>
+              <div>
+                <p class="card-text carousel">READING <BR> EXAM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end card -->
+        </div>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+    </div>
+
+    <div class="carousel-item">
+      <div class='slide2 d-block w-100 h-80'>
+        
+        <!--card-->
+        <div class="row g-0">
+          <div class="col-md-4 d-flex left-card carousel">
+            <div class="container d-flex carousel">
+              <div>
+                <img src="assets/alphabet.png" height="100px" width="100px">
+              </div>
+              <div>
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 d-flex right-card">
+            <div class="card-body d-flex text">
+              <div class="line">
+    
+              </div>
+              <div>
+                <p class="card-text carousel">VOCABULARY <BR> EXAM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end card -->
+        </div>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+    </div>
+
+    <div class="carousel-item ">
+      <div class='slide3 d-block w-100 h-80'>
+        
+        <!--card-->
+        <div class="row g-0">
+          <div class="col-md-4 d-flex left-card carousel">
+            <div class="container d-flex carousel">
+              <div>
+                <img src="assets/block.png" height="100px" width="100px">
+              </div>
+              <div>
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 d-flex right-card">
+            <div class="card-body d-flex text">
+              <div class="line">
+    
+              </div>
+              <div>
+                <p class="card-text carousel">GRAMMER<BR> EXAM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end card -->
+        </div>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+    </div>
+
+    <div class="carousel-item ">
+      <div class='slide4 d-block w-100 h-80'>
+        
+        <!--card-->
+        <div class="row g-0">
+          <div class="col-md-4 d-flex left-card carousel">
+            <div class="container d-flex carousel">
+              <div>
+                <img src="assets/headphone.png" height="100px" width="100px">
+              </div>
+              <div>
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 d-flex right-card">
+            <div class="card-body d-flex text">
+              <div class="line carousel">
+    
+              </div>
+              <div>
+                <p class="card-text carousel">LISTENING <BR> EXAM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end card -->
+        </div>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+    </div>
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- End Carousel -->
 <div class="middle">
   <div class="d-flex">
     <div class="container"></div>
