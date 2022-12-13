@@ -89,7 +89,7 @@
           </div>
           <!-- end card -->
         </div>
-        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']" (click)="set_category('reading')">Start</button>
     </div>
 
     <div class="carousel-item">
@@ -121,7 +121,7 @@
           </div>
           <!-- end card -->
         </div>
-        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+        <button (click)="set_category('vocabulary')" id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']" >Start</button>
     </div>
 
     <div class="carousel-item ">
@@ -153,7 +153,7 @@
           </div>
           <!-- end card -->
         </div>
-        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']" (click)="set_category('grammar')">Start</button>
     </div>
 
     <div class="carousel-item ">
@@ -185,7 +185,7 @@
           </div>
           <!-- end card -->
         </div>
-        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']">Start</button>
+        <button id='start-carousel' class="btn btn-primary" type="submit" [routerLink]="['/exam']"  (click)="set_category('listening')">Start</button>
     </div>
     
   </div>
