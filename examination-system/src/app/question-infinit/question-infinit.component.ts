@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from '../services/question.service';
-import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-question-infinit',
@@ -21,22 +20,27 @@ export class QuestionInfinitComponent implements OnInit {
   type!: string;
   answers: any[] = [];
   iframeMarkup!: string;
-  fileSource:any = 'http://localhost:4040/audio';
+  fileSource: any = 'http://localhost:4040/audio';
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
   ngOnInit(): void {
-    this.questionService.getAudioQuestion().subscribe({next:(data:any)=>{
-      console.log(data);
-      
-    }});
 
+    setTimeout(() => {
+      this.questionService.getAudioQuestion().subscribe({
+        next: (data: any) => {
+          console.log(data);
+          
+        }
+      });
+
+    }, 300);
     this.getSelection();
     this.changelogo();
   }
 
   getSelection() {
-    
+
   }
 
   // showQuestion() {
@@ -65,4 +69,16 @@ export class QuestionInfinitComponent implements OnInit {
     }
   }
 
+  nextQuestion() {
+    location.reload();
+    setTimeout(() => {
+      this.questionService.getAudioQuestion().subscribe({
+        next: (data: any) => {
+          console.log(data);
+          
+        }
+      });
+
+    }, 300);
+  }
 }

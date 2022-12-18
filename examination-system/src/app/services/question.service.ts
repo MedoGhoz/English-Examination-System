@@ -18,7 +18,7 @@ export class QuestionService {
 
   getAudioQuestion():Observable<any>{
   
-  return this.http.get(`http://localhost:4040/audio`);
+  return this.http.get(`http://localhost:4040/audio/text`);
   }
 
   getQuestions():Observable<any> {
