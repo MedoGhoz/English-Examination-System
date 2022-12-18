@@ -32,7 +32,10 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
     this.startTimer();
     this.questionService.getQuestions().subscribe({next:(data:any)=>{
-      console.log(data);
+      let audio = new Audio(data);
+      audio.play()
+      console.log(audio);
+    
       this.apiQuestions = data.questions;
       
       this.formatQuestions()

@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { QuestionComponent } from './question/question.component';
 import { ResultsComponent } from './results/results.component';
+import { QuestionInfinitComponent } from './question-infinit/question-infinit.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ResultsComponent } from './results/results.component';
     FooterComponent,
     HomeComponent,
     QuestionComponent,
-    ResultsComponent
+    ResultsComponent,
+    QuestionInfinitComponent
   ],
   imports: [
     BrowserModule,

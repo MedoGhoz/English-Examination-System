@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
+import { outputAst } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,11 @@ export class QuestionService {
   category:any='';
   constructor(private http: HttpClient) {
     
+  }
+
+  getAudioQuestion():Observable<any>{
+  
+  return this.http.get(`http://localhost:4040/audio`);
   }
 
   getQuestions():Observable<any> {
