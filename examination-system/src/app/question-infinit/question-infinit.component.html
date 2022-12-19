@@ -23,14 +23,14 @@
         <div class="col">
             <div class="card text-center">
                 <div class="card-header">
-                    <input type="text" placeholder="enter what you hear" class="answer">
+                    <input type="text" placeholder="enter what you hear" class="answer" [(ngModel)]="answer" [disabled]="submitted">
                 </div>
                 <div class="card-body">
+                    <div id="result"></div>
                     <form>                
                         <input type="button" (click)="nextQuestion()" value="next" class="nextButton">
-                        <input type="button" (click)="getSelection()" value="submit" class="finishButton">
+                        <input type="button" (click)="submitQuestion()" value="submit" class="finishButton">
                     </form>
-
                 </div>
             </div>
         </div>

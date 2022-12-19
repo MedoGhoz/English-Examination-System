@@ -1,3 +1,4 @@
+import { transition } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from '../services/question.service';
@@ -9,8 +10,9 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuestionInfinitComponent implements OnInit {
   width: number = 0;
-
-
+  answer: string = "";
+  text: string = "";
+  submitted: boolean = false;
   questions: any[] = [];
   apiQuestions!: any[];
 
@@ -30,7 +32,7 @@ export class QuestionInfinitComponent implements OnInit {
       this.questionService.getAudioQuestion().subscribe({
         next: (data: any) => {
           console.log(data);
-          
+          this.text = data.text;
         }
       });
 
@@ -75,10 +77,34 @@ export class QuestionInfinitComponent implements OnInit {
       this.questionService.getAudioQuestion().subscribe({
         next: (data: any) => {
           console.log(data);
-          
+
         }
       });
 
     }, 300);
+  }
+
+  submitQuestion() {
+    this.submitted = true;
+    let answerArr = this.answer.split(" ");
+    const textLowerCase = this.text.toLocaleLowerCase();
+    const textLowerCase2 = textLowerCase.slice(0,-3);
+    let textArr = textLowerCase2.split(" ");
+    console.log(textArr);
+    
+    const result = document.getElementById("result");
+    console.log(answerArr);
+    for (let i = 0; i < answerArr.length; i++) {
+      if (result != null) {
+        console.log(answerArr[i].toLocaleLowerCase());
+        
+        if (textArr.includes(answerArr[i].toLocaleLowerCase())) {
+          result.innerHTML += `<span class="correct" style="color:green"> ${answerArr[i]} </span>`
+        } else {
+          result.innerHTML += `<span class="wrong" style="color:red"> ${answerArr[i]} </span>`
+        }
+      }
+    }
+
   }
 }

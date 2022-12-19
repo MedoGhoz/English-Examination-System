@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { QuestionComponent } from './question/question.component';
 import { ResultsComponent } from './results/results.component';
 import { QuestionInfinitComponent } from './question-infinit/question-infinit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { QuestionInfinitComponent } from './question-infinit/question-infinit.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
