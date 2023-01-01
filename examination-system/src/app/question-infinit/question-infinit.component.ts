@@ -1,4 +1,4 @@
-import { transition } from '@angular/animations';
+import { style, transition } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from '../services/question.service';
@@ -15,7 +15,6 @@ export class QuestionInfinitComponent implements OnInit {
   submitted: boolean = false;
   questions: any[] = [];
   apiQuestions!: any[];
-
   display: string = "block";
   showParagraph: boolean = true;
   logoPath!: string;
@@ -23,25 +22,58 @@ export class QuestionInfinitComponent implements OnInit {
   answers: any[] = [];
   iframeMarkup!: string;
   fileSource: any = 'http://localhost:4040/audio';
+  //checkingforErrorQuestion
+  QuestionType:string='checkErrorQuestions';
+  sentence!:string;
+  wrong!:string;
+  rightAnswer!:string;
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
   ngOnInit(): void {
 
-    setTimeout(() => {
-      this.questionService.getAudioQuestion().subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.text = data.text;
-        }
-      });
+    // setTimeout(() => {
+    //   this.questionService.getAudioQuestion().subscribe({
+    //     next: (data: any) => {
+    //       console.log(data);
+    //       this.text = data.text;
+    //     }
+    //   });
+      setTimeout(() => {
+        this.questionService.getCheckErrorQuestions().subscribe({
+          next: (data: any) => {
+            console.log(data);
+            this.sentence = data.sentence;
+            this.wrong=data.wrong;
+            this.rightAnswer=data.answer;
+          }
+        });
 
     }, 300);
     this.getSelection();
     this.changelogo();
+    // this.playAudio();
   }
-
+// playAudio(){
+//   let a=0;
+//   document.getElementsByTagName("i")[0].addEventListener("click",function(){
+//     if((!document.getElementsByTagName("audio")[0].paused)){
+//       document.getElementsByTagName("i")[0].style.opacity=".5";}
+//       else{
+//         document.getElementsByTagName("i")[0].style.opacity="1";
+//       }
+//     if(a==0){
+//     document.getElementsByTagName("audio")[0].play();
+//     a++;
+//     }else{
+//     document.getElementsByTagName("audio")[0].pause();
+//     a--;
+    
+//     }
+//     });
+// }
   getSelection() {
+
 
   }
 
@@ -71,40 +103,72 @@ export class QuestionInfinitComponent implements OnInit {
     }
   }
 
+  // nextQuestion() {
+  //   location.reload();
+  //   setTimeout(() => {
+  //     this.questionService.getAudioQuestion().subscribe({
+  //       next: (data: any) => {
+  //         console.log(data);
+
+  //       }
+  //     });
+
+  //   }, 300);
+  // }
+
+  //CheckForErrorsQuestions
   nextQuestion() {
     location.reload();
     setTimeout(() => {
-      this.questionService.getAudioQuestion().subscribe({
+      this.questionService.getCheckErrorQuestions().subscribe({
         next: (data: any) => {
           console.log(data);
-
+          this.sentence = data.sentence;
+          this.wrong=data.wrong;
+          this.rightAnswer=data.answer;
         }
       });
 
-    }, 300);
+  }, 300);
   }
 
-  submitQuestion() {
-    this.submitted = true;
-    let answerArr = this.answer.split(" ");
-    const textLowerCase = this.text.toLocaleLowerCase();
-    const textLowerCase2 = textLowerCase.slice(0,-3);
-    let textArr = textLowerCase2.split(" ");
-    console.log(textArr);
+  // submitQuestion() {
+  //   this.submitted = true;
+  //   let answerArr = this.answer.split(" ");
+  //   const textLowerCase = this.text.toLocaleLowerCase();
+  //   const textLowerCase2 = textLowerCase.slice(0,-3);
+  //   let textArr = textLowerCase2.split(" ");
+  //   console.log(textArr);
     
-    const result = document.getElementById("result");
-    console.log(answerArr);
-    for (let i = 0; i < answerArr.length; i++) {
-      if (result != null) {
-        console.log(answerArr[i].toLocaleLowerCase());
+  //   const result = document.getElementById("result");
+  //   console.log(answerArr);
+  //   for (let i = 0; i < answerArr.length; i++) {
+  //     if (result != null) {
+  //       console.log(answerArr[i].toLocaleLowerCase());
         
-        if (textArr.includes(answerArr[i].toLocaleLowerCase())) {
-          result.innerHTML += `<span class="correct" style="color:green"> ${answerArr[i]} </span>`
-        } else {
-          result.innerHTML += `<span class="wrong" style="color:red"> ${answerArr[i]} </span>`
-        }
-      }
+  //       if (textArr.includes(answerArr[i].toLocaleLowerCase())) {
+  //         result.innerHTML += `<span class="correct" style="color:green"> ${answerArr[i]} </span>`
+  //       } else {
+  //         result.innerHTML += `<span class="wrong" style="color:red"> ${answerArr[i]} </span>`
+  //       }
+  //     }
+  //   }
+
+  // }
+
+  //CheckForErrorsQuestions
+  submitQuestion() {
+    if(this.answer==this.rightAnswer) {
+      document.getElementById('answer')?.setAttribute("style",'color:green');
+      document.getElementById('answer')?.setAttribute("disabled",'');
+
     }
+    else{
+      document.getElementById('answer')?.setAttribute("style",'color:red');
+      document.getElementById('answer')?.setAttribute("disabled",'');
+    }
+    
+
 
   }
 }

@@ -1,3 +1,4 @@
+
 <section class="container">
     <div class="row">
         <div class="progress col-11 ">
@@ -21,11 +22,6 @@
             <p *ngIf="type.toLocaleLowerCase() == 'reading'">
                 {{questions[width].header}}
             </p>
-
-            <!-- <iframe *ngIf="type.toLocaleLowerCase() == 'listening'" width="560" height="315" src="https://www.youtube.com/watch?v=w7EUJ1-aEpI"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe> -->
                 <div id="audio" class="video"></div>
         </div>
         <div class="col">

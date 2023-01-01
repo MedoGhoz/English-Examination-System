@@ -1,4 +1,7 @@
-<section class="container">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<section class="container" *ngIf="QuestionType!='checkErrorQuestions'">
     <!-- <div class="d-flex flex-row-reverse second-bar">
         <div class="result">
             <div class="score container">
@@ -10,29 +13,73 @@
         </div>
     </div> -->
     <div class="question d-flex row container">
-        <div class="col" [style.display]="display">
+
+        <div class="col audio" [style.display]="display" >
+        <!-- <div class="col audio" style="display:none"> -->
+
             <p *ngIf="type.toLocaleLowerCase() == 'reading'">
                 {{questions[width].header}}
             </p>
-            <div *ngIf="type.toLocaleLowerCase() == 'listening'">
+            <div class="AudioFile" *ngIf="type.toLocaleLowerCase() == 'listening'">
                 <audio controls>
                     <source [src]="fileSource" type="audio/mp3">
+                    <!-- <source src="/assets/A Bushel And A Peck.mp3" type="audio/mp3"> -->
                 </audio>
             </div>
         </div>
         <div class="col">
             <div class="card text-center">
                 <div class="card-header">
-                    <input type="text" placeholder="enter what you hear" class="answer" [(ngModel)]="answer" [disabled]="submitted">
+                    <i class="fa fa-volume-up" aria-hidden="true" ></i>
+                    <input type="text" placeholder="What have you heard ?" class="answer" [(ngModel)]="answer" [disabled]="submitted">
                 </div>
                 <div class="card-body">
                     <div id="result"></div>
                     <form>                
-                        <input type="button" (click)="nextQuestion()" value="next" class="nextButton">
-                        <input type="button" (click)="submitQuestion()" value="submit" class="finishButton">
+                        <input type="button" (click)="nextQuestion()" value="Next" class="nextButton">
+                        <input type="button" (click)="submitQuestion()" value="Submit" class="finishButton">
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="d-flex row container">
+
+<section class="container" *ngIf="QuestionType=='checkErrorQuestions'">
+    <div class="card text-center">
+        <div class="card-header">
+
+            <p class="card-text">{{sentence}}</p>
+            
+            <input type="text" id='answer' placeholder="the right word" class="answer" [(ngModel)]="answer" [disabled]="submitted">
+        </div>
+        <div class="card-body">
+            <div id="result"></div>
+            <form>                
+                <input type="button" (click)="nextQuestion()" value="Next" class="nextButton">
+        <input type="button" (click)="submitQuestion()" value="Submit" class="finishButton">
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- 
+    <div>correct the following sentence</div>
+    <div>
+        {{this.sentence}}
+    </div>
+    <div>Enter the Correction of the wrong word only</div>
+    <input type="text" id='answer' placeholder="the right word" class="answer" [(ngModel)]="answer" [disabled]="submitted">
+    <form>                
+        <input type="button" (click)="nextQuestion()" value="Next" class="nextButton">
+        <input type="button" (click)="submitQuestion()" value="Submit" class="finishButton">
+    </form> -->
+
+</section>
+</div>

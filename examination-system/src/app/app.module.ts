@@ -11,6 +11,7 @@ import { ResultsComponent } from './results/results.component';
 import { QuestionInfinitComponent } from './question-infinit/question-infinit.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -21,6 +21,10 @@ export class QuestionService {
   return this.http.get(`http://localhost:4040/audio/text`);
   }
 
+  getCheckErrorQuestions():Observable<any>{
+    return this.http.get(`http://localhost:4040/checkErrors/wrongSentence`);
+  }
+
   getQuestions():Observable<any> {
     return this.http.get(`http://localhost:4040/questions/${this.category}`);
   }

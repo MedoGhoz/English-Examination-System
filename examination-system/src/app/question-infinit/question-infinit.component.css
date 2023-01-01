@@ -93,6 +93,7 @@ iframe{
 }
 .card {
     box-shadow: 0px 0px 5px 0.5px rgb(186, 186, 186);
+    margin-left: 10px;
     
 }
 .choice{
@@ -119,19 +120,7 @@ iframe{
     
 }
 
-@media screen and (max-width:400px) {
-    .choice-label{
-        font-size: smaller;
-    }
-    .row{
-        padding: 40px 0px 20px 0px;
-    }
-}
-@media screen and (max-width:550px) {
-    .question-timer{
-        width: 45%;
-    }
-}
+
 
 @media screen and (max-width:1000px) {
     .question{
@@ -141,4 +130,110 @@ iframe{
     .question div{
         width: 100%;
     }
+    div.col.audio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding-top:20% ;
+        padding-left:22% ;
+        padding-right:22% ;
+    }
+}
+@media screen and (max-width:770px) {
+    div.col.audio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding-top:20% ;
+        padding-left:14% ;
+        padding-right:4% ;
+    }
+}
+@media screen and (max-width:550px) {
+    .question-timer{
+        width: 45%;
+    }
+    div.col.audio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding-top:20% ;
+        padding-left:12% ;
+        padding-right:12% ;
+    }
+}
+@media screen and (max-width:400px) {
+    .choice-label{
+        font-size: smaller;
+    }
+    .row{
+        padding: 40px 0px 20px 0px;
+    }
+    div.col.audio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding-top:20% ;
+        padding-left:10% ;
+        padding-right:10% ;
+    }
+}
+
+/*  */
+div.col.audio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+audio::-webkit-media-controls-panel {
+    background-color: #56AEFF;
+  }
+
+form{
+    display: flex;
+
+}
+.question.d-flex.row.container{
+display: flex;
+justify-content: center;
+height: 500px;
+}
+div.card-header{
+    background-color: #e6e6e6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+div.card-header input{
+    margin-left: 6px;
+}
+i{
+    margin-right: 10px;
+}
+
+/* css for the ErrorChecking Questions */
+.card-text{
+    color: rgb(0, 0, 0);
+    text-align: left;
+
+}
+.answer{
+    width: 200px;
+}
+div.card-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.d-flex.row.container{
+    margin: auto;
 }
