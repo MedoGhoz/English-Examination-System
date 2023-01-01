@@ -166,6 +166,10 @@ export class QuestionInfinitComponent implements OnInit {
     else{
       document.getElementById('answer')?.setAttribute("style",'color:red');
       document.getElementById('answer')?.setAttribute("disabled",'');
+      let x = document.createElement('div');
+      x.textContent=this.rightAnswer;
+      document.getElementsByClassName('card-header')[0].appendChild(x);
+
     }
     
 

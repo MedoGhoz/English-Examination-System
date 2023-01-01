@@ -54,9 +54,11 @@
             <p class="card-text">{{sentence}}</p>
             
             <input type="text" id='answer' placeholder="the right word" class="answer" [(ngModel)]="answer" [disabled]="submitted">
+            <div id="rightAnswer"></div>
         </div>
         <div class="card-body">
             <div id="result"></div>
+            
             <form>                
                 <input type="button" (click)="nextQuestion()" value="Next" class="nextButton">
         <input type="button" (click)="submitQuestion()" value="Submit" class="finishButton">
