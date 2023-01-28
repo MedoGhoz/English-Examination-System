@@ -10,6 +10,7 @@ import { QuestionComponent } from './question/question.component';
 import { ResultsComponent } from './results/results.component';
 import { QuestionInfinitComponent } from './question-infinit/question-infinit.component';
 import { FormsModule } from '@angular/forms';
+import { InfiniteQuestionsListeningComponent } from './infinite-questions-listening/infinite-questions-listening.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     QuestionComponent,
     ResultsComponent,
-    QuestionInfinitComponent
+    QuestionInfinitComponent,
+    InfiniteQuestionsListeningComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,38 @@
+<section class="container">
+    <!-- <div class="d-flex flex-row-reverse second-bar">
+        <div class="result">
+            <div class="score container">
+                <div>{{width+1}}</div>
+            </div>
+        </div>
+        <div class="question-type">
+            <img [src]="logoPath" height="40px" width="40px">
+        </div>
+    </div> -->
+    <div class="question d-flex row container">
+        <div class="col" [style.display]="display">
+            <p *ngIf="type.toLocaleLowerCase() == 'reading'">
+                {{questions[width].header}}
+            </p>
+            <div *ngIf="type.toLocaleLowerCase() == 'listening'">
+                <audio controls>
+                    <source [src]="fileSource" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-header">
+                    <input type="text" placeholder="enter what you hear" class="answer">
+                </div>
+                <div class="card-body">
+                    <form>                
+                        <input type="button" (click)="nextQuestion()" value="next" class="nextButton">
+                        <input type="button" (click)="getSelection()" value="submit" class="finishButton">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

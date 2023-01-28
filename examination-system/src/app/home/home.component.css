@@ -67,6 +67,10 @@ h1{
     width: 20px;
 }
 
+.carousel {
+    margin-top: 20px;
+}
+
 #start{
     width: 70%;
     border-radius: 18px;
