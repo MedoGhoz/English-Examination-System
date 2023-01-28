@@ -11,17 +11,25 @@
     </div> -->
     <div class="question d-flex row container">
         <div class="col" [style.display]="display">
-            <p *ngIf="type.toLocaleLowerCase() == 'reading'">
-                {{questions[width].header}}
-            </p>
-            <div *ngIf="type.toLocaleLowerCase() == 'listening'">
-                <audio controls>
-                    <source [src]="fileSource" type="audio/mp3">
-                </audio>
+            <div class="card text-center" style="height: 120px;">
+                <div class="card-header">
+                    <p class="audioHeader">Listen then answer</p>
+                </div>
+                <div class="card-body">
+                    <p *ngIf="type.toLocaleLowerCase() == 'reading'">
+                        {{questions[width].header}}
+                    </p>
+                    <div *ngIf="type.toLocaleLowerCase() == 'listening'">
+                        <audio controls class="audioQuestion">
+                            <source [src]="fileSource" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
             </div>
+            
         </div>
         <div class="col">
-            <div class="card text-center">
+            <div class="card text-center" style="height: 120px;">
                 <div class="card-header">
                     <input type="text" placeholder="enter what you hear" class="answer" [(ngModel)]="answer" [disabled]="submitted">
                 </div>

@@ -24,6 +24,14 @@
     background: linear-gradient(311deg, rgba(44,148,255,1) 47%, rgba(255,255,255,1) 100%);
 }
 
+.audioHeader{
+    margin-bottom: 0;
+}
+
+.audioQuestion{
+    width: 90%;
+}
+
 .question-number p{
     margin: auto;
     text-align: center;

@@ -36,7 +36,7 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
         }
       });
 
-    }, 300);
+    }, 500);
     this.getSelection();
     this.changelogo();
   }
