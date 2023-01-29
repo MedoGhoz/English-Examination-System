@@ -15,7 +15,7 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
   submitted: boolean = false;
   questions: any[] = [];
   apiQuestions!: any[];
-  unorderRightAnswerArr!:string[];
+  unorderRightAnswerArr:string[]=[];
   display: string = "block";
   showParagraph: boolean = true;
   logoPath!: string;
@@ -83,6 +83,7 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
     }, 300);
   }
   submitQuestion() {
+    console.log('submitted');
     this.submitted = true;
     let answerArr = this.answer.split(" ");
     let textArr = this.text.toLocaleLowerCase().slice(0,-3).split(" ");    
