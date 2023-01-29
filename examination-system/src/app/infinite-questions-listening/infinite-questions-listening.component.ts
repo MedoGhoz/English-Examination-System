@@ -15,13 +15,14 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
   submitted: boolean = false;
   questions: any[] = [];
   apiQuestions!: any[];
-
+  unorderRightAnswerArr!:string[];
   display: string = "block";
   showParagraph: boolean = true;
   logoPath!: string;
   type!: string;
   answers: any[] = [];
   iframeMarkup!: string;
+  color!:string;
   fileSource: any = 'http://localhost:4040/audio';
 
   constructor(private questionService: QuestionService, private router: Router) { }
@@ -31,12 +32,12 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
     setTimeout(() => {
       this.questionService.getAudioQuestion().subscribe({
         next: (data: any) => {
-          console.log(data);
+          // console.log(data);
           this.text = data.text;
         }
       });
 
-    }, 500);
+    }, 300);
     this.getSelection();
     this.changelogo();
   }
@@ -76,32 +77,36 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
     setTimeout(() => {
       this.questionService.getAudioQuestion().subscribe({
         next: (data: any) => {
-          console.log(data);
-
         }
       });
 
     }, 300);
   }
-
   submitQuestion() {
     this.submitted = true;
     let answerArr = this.answer.split(" ");
-    const textLowerCase = this.text.toLocaleLowerCase();
-    const textLowerCase2 = textLowerCase.slice(0,-3);
-    let textArr = textLowerCase2.split(" ");
-    console.log(textArr);
-    
+    let textArr = this.text.toLocaleLowerCase().slice(0,-3).split(" ");    
     const result = document.getElementById("result");
-    console.log(answerArr);
     for (let i = 0; i < answerArr.length; i++) {
+      if (textArr.includes(answerArr[i])){
+        this.unorderRightAnswerArr.push(answerArr[i]);
+      }
+    }
+    for (let i = 0; i < textArr.length; i++) {
       if (result != null) {
-        console.log(answerArr[i].toLocaleLowerCase());
-        
-        if (textArr.includes(answerArr[i].toLocaleLowerCase())) {
+        if (textArr[i].toLocaleLowerCase() == answerArr[i]) {
           result.innerHTML += `<span class="correct" style="color:green"> ${answerArr[i]} </span>`
-        } else {
-          result.innerHTML += `<span class="wrong" style="color:red"> ${answerArr[i]} </span>`
+        }
+        else {
+
+          if(this.unorderRightAnswerArr.includes(textArr[i].toLocaleLowerCase())){
+            this.color='green'
+          }
+          else{
+            this.color='red'
+          }
+
+          result.innerHTML += `<span class="wrong" style="color:${this.color}"> ${textArr[i]} </span>`
         }
       }
     }
