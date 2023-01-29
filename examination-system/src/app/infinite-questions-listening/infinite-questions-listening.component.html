@@ -37,7 +37,7 @@
                     <div id="result"></div>
                     <form>                
                         <input type="button" (click)="nextQuestion()" value="next" class="nextButton">
-                        <input type="button" (click)="submitQuestion()" value="submit" class="finishButton">
+                        <input type="button" (click)="submitQuestion()" value="submit" class="finishButton" [disabled]="submitted">
                     </form>
                 </div>
             </div>
