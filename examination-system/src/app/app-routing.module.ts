@@ -6,6 +6,8 @@ import { InfiniteQuestionsListeningComponent } from './infinite-questions-listen
 import { QuestionInfinitComponent } from './question-infinit/question-infinit.component';
 import { QuestionComponent } from './question/question.component';
 import { ResultsComponent } from './results/results.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
@@ -13,7 +15,11 @@ const routes: Routes = [
   {path:"exam",component:QuestionComponent},
   {path:"infinitExam",component:QuestionInfinitComponent},
   {path:"infinitListeningExam",component:InfiniteQuestionsListeningComponent},
-  {path:"result",component:ResultsComponent}
+  {path:"result",component:ResultsComponent},
+  {path:"register",component:LoginComponent},
+  {path:"signup",component:SignupComponent}
+
+
 ];
 
 @NgModule({
