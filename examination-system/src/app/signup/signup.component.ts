@@ -1,20 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
+export interface User {
+  firstName: string,
+  email: string,
+  password: string,
+};
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
 
   form: any = {
-    username: null,
+    firstName: null,
     email: null,
     password: null
   };
+  user={}
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  
 
   constructor(private authService: AuthenticationService) { }
 
@@ -22,15 +30,23 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password } = this.form;
+    const { firstName, email, password } = this.form;
 
-    this.authService.register(username, email, password).subscribe({
+    
+    const user : User = {
+      firstName:firstName,
+      email:email,
+      password:password
+    };
+
+    this.authService.register(user).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
       error: err => {
+        console.log(err);
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
