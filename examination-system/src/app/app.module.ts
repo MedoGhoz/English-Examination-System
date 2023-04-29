@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { InfiniteQuestionsListeningComponent } from './infinite-questions-listening/infinite-questions-listening.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { QuestionGenerationComponent } from './question-generation/question-generation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { SignupComponent } from './signup/signup.component';
     QuestionInfinitComponent,
     InfiniteQuestionsListeningComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    QuestionGenerationComponent
   ],
   imports: [
     BrowserModule,
