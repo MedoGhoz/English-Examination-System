@@ -1,14 +1,22 @@
 <nav class="navbar navbar-expand-md">
   <div class="logo">
-    <img src="assets/Logo.png">
+    <img src="assets/Logo.png" />
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavbar"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="generate">Generate Questions</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Products</a>
@@ -18,11 +26,10 @@
       </li>
     </ul>
     <div>
-      <div class="navbar-text me-2" [routerLink]="['/register']" >Login</div>
+      <div class="navbar-text me-2" [routerLink]="['/register']">Login</div>
     </div>
     <div>
-    <div class="navbar-text me-2" [routerLink]="['/signup']" >sign Up</div>
-  </div>
-
+      <div class="navbar-text me-2" [routerLink]="['/signup']">sign Up</div>
+    </div>
   </div>
 </nav>

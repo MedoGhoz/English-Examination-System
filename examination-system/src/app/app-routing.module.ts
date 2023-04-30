@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomePageWithTwoButtonsComponent } from './home-page-with-two-buttons/home-page-with-two-buttons.component';
 import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-type-and-length-component/selecting-exam-type-and-length-component.component';
+import {QuestionGenerationComponent} from './question-generation/question-generation.component';
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:"register",component:LoginComponent},
   {path:"signup",component:SignupComponent},
   {path:"twoButtons",component:HomePageWithTwoButtonsComponent,children:[{path:'',component:FooterComponent}]},
-  {path:"testSelection",component:SelectingExamTypeAndLengthComponentComponent,children:[{path:'',component:FooterComponent}]}
+  {path:"testSelection",component:SelectingExamTypeAndLengthComponentComponent,children:[{path:'',component:FooterComponent}]},
+  {path: 'generate', component: QuestionGenerationComponent}
 
 ];
 

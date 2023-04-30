@@ -71,6 +71,10 @@ h1{
     margin-top: 20px;
 }
 
+.carousel p{
+    font-size: 30px;
+}
+
 #start{
     width: 70%;
     border-radius: 18px;
