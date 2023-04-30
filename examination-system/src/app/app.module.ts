@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { InfiniteQuestionsListeningComponent } from './infinite-questions-listening/infinite-questions-listening.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomePageWithTwoButtonsComponent } from './home-page-with-two-buttons/home-page-with-two-buttons.component';
+import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-type-and-length-component/selecting-exam-type-and-length-component.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { SignupComponent } from './signup/signup.component';
     QuestionInfinitComponent,
     InfiniteQuestionsListeningComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomePageWithTwoButtonsComponent,
+    SelectingExamTypeAndLengthComponentComponent
   ],
   imports: [
     BrowserModule,
