@@ -32,15 +32,3 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-.form-group.buttons{
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-
-}
-.form-group.buttons button:last-child{
-  margin-left:20px ;
-}

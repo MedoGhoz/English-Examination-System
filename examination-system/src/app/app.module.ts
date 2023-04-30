@@ -17,6 +17,7 @@ import { HomePageWithTwoButtonsComponent } from './home-page-with-two-buttons/ho
 import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-type-and-length-component/selecting-exam-type-and-length-component.component';
 
 import { QuestionGenerationComponent } from './question-generation/question-generation.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { QuestionGenerationComponent } from './question-generation/question-gene
     SignupComponent,
     HomePageWithTwoButtonsComponent,
     SelectingExamTypeAndLengthComponentComponent,
-    QuestionGenerationComponent
+    QuestionGenerationComponent,
+    StudentProfileComponent
   ],
   imports: [
     BrowserModule,

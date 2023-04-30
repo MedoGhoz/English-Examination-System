@@ -11,19 +11,21 @@ import { SignupComponent } from './signup/signup.component';
 import { HomePageWithTwoButtonsComponent } from './home-page-with-two-buttons/home-page-with-two-buttons.component';
 import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-type-and-length-component/selecting-exam-type-and-length-component.component';
 import {QuestionGenerationComponent} from './question-generation/question-generation.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
-  {path:"home",component:HomeComponent,children:[{path:'',component:FooterComponent}]},
+  {path:"exercise",component:HomeComponent,children:[{path:'',component:FooterComponent}]},
   {path:"exam",component:QuestionComponent},
   {path:"infinitExam",component:QuestionInfinitComponent},
   {path:"infinitListeningExam",component:InfiniteQuestionsListeningComponent},
   {path:"result",component:ResultsComponent},
   {path:"register",component:LoginComponent},
   {path:"signup",component:SignupComponent},
-  {path:"twoButtons",component:HomePageWithTwoButtonsComponent,children:[{path:'',component:FooterComponent}]},
+  {path:"home",component:HomePageWithTwoButtonsComponent,children:[{path:'',component:FooterComponent}]},
   {path:"testSelection",component:SelectingExamTypeAndLengthComponentComponent,children:[{path:'',component:FooterComponent}]},
-  {path: 'generate', component: QuestionGenerationComponent}
+  {path: 'generate', component: QuestionGenerationComponent},
+  {path: 'profile', component: StudentProfileComponent},
 
 ];
 

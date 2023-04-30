@@ -5,3 +5,19 @@
 body{
     font-family: 'Amazon Ember', sans-serif;
 }
+/* Set the width of the scroll bar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+
+}
+
+/* Set the color of the thumb and the track of the scroll bar */
+::-webkit-scrollbar-thumb {
+  background-color: #24394e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #6eb7ff;
+}

@@ -15,18 +15,24 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="generate">Generate Questions</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">Products</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
-    <div>
+    <div *ngIf="!isLoggedIn">
       <div class="navbar-text me-2" [routerLink]="['/register']">Login</div>
+    </div>
+    <div *ngIf="isLoggedIn" id="username">
+      <div class="navbar-text me-2"[routerLink]="['/profile']">{{this.userFirstName}}</div>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <div class="navbar-text me-2" (click)="logout()">log out</div>
     </div>
     <div>
       <div class="navbar-text me-2" [routerLink]="['/signup']">sign Up</div>

@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="card card-container">
-        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+        <img id="profile-img" src="https://i.pinimg.com/originals/79/10/d8/7910d806a0c721deaa6bea51dd53a132.jpg" class="profile-img-card" />
         <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -21,10 +21,13 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group buttons">
                 <button class="btn btn-primary btn-block">
                     Login
                 </button>
+                <button class="btn btn-primary btn-block">
+                  Sign Up ?
+              </button>
 
             </div>
             <div class="form-group">
