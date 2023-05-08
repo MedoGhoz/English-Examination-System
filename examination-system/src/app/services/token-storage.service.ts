@@ -10,9 +10,13 @@ const USER_EMAIL = '';
 export class TokenStorageService {
 
   constructor() { }
-
+  isAuthenticated(){
+    return this.getToken();
+  }
   signOut(): void {
     window.sessionStorage.clear();
+
+
   }
 
   public saveToken(token: string): void {

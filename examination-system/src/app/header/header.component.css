@@ -14,7 +14,9 @@ nav.navbar{
 }
 
 nav .logo{
+  /* padding-left: 20px; */
     width: 20%;
+    height: 38px;
     display: block;
     margin: auto;
     text-align: center;
@@ -65,5 +67,20 @@ nav div div:hover div{
 #username:hover{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   color: rgb(0, 0, 0);
+
+}
+svg:hover{text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+.cls-1, .cls-2 {
+  fill-rule: evenodd;
+}
+
+.cls-2 {
+  fill: #2683e8;
+}
+svg{
+  width: 108px;
+}
+@media screen (max-width:) {
 
 }
