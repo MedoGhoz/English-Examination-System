@@ -13,6 +13,9 @@ import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-t
 import {QuestionGenerationComponent} from './question-generation/question-generation.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
+import { examGuard } from './auth.guard';
+import { TestResultComponent } from './test-result/test-result.component';
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
@@ -27,6 +30,8 @@ const routes: Routes = [
   {path:"testSelection",component:SelectingExamTypeAndLengthComponentComponent,children:[{path:'',component:FooterComponent}],canActivate:[AuthGuard]},
   {path: 'generate', component: QuestionGenerationComponent,canActivate:[AuthGuard]},
   {path: 'profile', component: StudentProfileComponent,canActivate:[AuthGuard]},
+  {path: 'test', component: ExamQuestionsComponent,canActivate:[AuthGuard,examGuard]},
+  {path:"testresult",component:TestResultComponent,canActivate:[AuthGuard]},
 
 ];
 

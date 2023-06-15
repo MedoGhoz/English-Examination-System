@@ -9,10 +9,9 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuestionComponent implements OnInit {
   width: number = 0;
-
   minutes: number = 5;
   seconds: number = 0;
-  timeLeft: number = 300;
+  timeLeft: number = this.minutes * 60;
   interval: any;
 
   questions: any[] = [];
@@ -35,14 +34,14 @@ export class QuestionComponent implements OnInit {
       let audio = new Audio(data);
       audio.play()
       console.log(audio);
-    
+
       this.apiQuestions = data.questions;
-      
+
       this.formatQuestions()
       this.showQuestion();
       this.changelogo();
     }})
-    
+
   }
 
   startTimer() {
@@ -151,5 +150,5 @@ export class QuestionComponent implements OnInit {
       : null;
   }
 
-  
+
 }

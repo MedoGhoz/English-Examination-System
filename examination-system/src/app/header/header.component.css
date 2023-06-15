@@ -81,6 +81,9 @@ svg:hover{text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 svg{
   width: 108px;
 }
-@media screen (max-width:) {
 
+@media (max-width:782px){
+  nav div div{
+    font-size: 0.9rem;
+  }
 }

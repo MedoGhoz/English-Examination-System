@@ -1,10 +1,10 @@
 <div *ngIf="!examType" class="container">
   <h2>Select Exam Type</h2>
   <div class="Buttons">
-  <button (click)="selectExamType('Complete Exam')">Complete Exam</button>
+  <button (click)="selectExamType('complete_exam')">Complete Exam</button>
   <button (click)="selectExamType('Reading')">Reading</button>
   <button (click)="selectExamType('Listening')">Listening</button>
-  <button (click)="selectExamType('Grammer')">Grammer</button>
+  <button (click)="selectExamType('Grammar')">Grammer</button>
   <button (click)="selectExamType('Vocabulary')">Vocabulary</button>
 </div>
 </div>
@@ -12,9 +12,9 @@
 <div *ngIf="examType && !examLength" class="container">
   <h2>Select Exam Length</h2>
   <div class="Buttons">
-  <button (click)="selectExamLength('small')">15 minutes</button>
-  <button (click)="selectExamLength('medium')">30 minutes</button>
-  <button (click)="selectExamLength('large')">45 minutes</button>
+  <button (click)="selectExamLength(5)">15 minutes</button>
+  <button (click)="selectExamLength(10)">30 minutes</button>
+  <button (click)="selectExamLength(15)">45 minutes</button>
 </div>
 </div>
 

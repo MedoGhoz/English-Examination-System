@@ -1,0 +1,27 @@
+<div class="result">
+  <div class="score container">
+      <div>{{result}} / {{total}}</div>
+  </div>
+</div>
+<div *ngFor="let question of questions; let i = index" class="container preview">
+  <div class="card question-header" *ngIf="question.first">
+      <div *ngIf="question.category.toLocaleLowerCase() == 'reading'" class="card-header">{{question.header}}</div>
+      <div *ngIf="question.category.toLocaleLowerCase() == 'listening'" [id]="i" class="video"></div>
+  </div>
+  <div class="card text-center">
+      <div class="card-header">
+          ({{i + 1}}) {{question.question}} <span class="not-answered">{{answers[i] =="" ? "Not Answered":""}}</span>
+      </div>
+      <div class="card-body">
+          <form>
+              <div *ngFor="let choice of question.choices" class="choice">
+                  <input [id]="choice" [value]="choice" type="checkbox" name="selection"
+                      [checked]="(choice.trim().trim('.')==question.answer.trim().trim('.') || choice.trim().trim('.')==answers[i])?true:false"
+                      [style.accent-color]="(choice.trim().trim('.')==question.answer.trim().trim('.'))?'green':'red'" class="checkbox">&nbsp;&nbsp;
+                  <label [for]="choice">{{choice}}</label>
+              </div>
+          </form>
+      </div>
+  </div>
+  <hr *ngIf="i < questions.length - 1 && questions[i].header != questions[i+1].header">
+</div>

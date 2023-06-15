@@ -18,6 +18,8 @@ import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-t
 
 import { QuestionGenerationComponent } from './question-generation/question-generation.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
+import { TestResultComponent } from './test-result/test-result.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     HomePageWithTwoButtonsComponent,
     SelectingExamTypeAndLengthComponentComponent,
     QuestionGenerationComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    ExamQuestionsComponent,
+    TestResultComponent
   ],
   imports: [
     BrowserModule,
