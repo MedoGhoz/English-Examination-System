@@ -17,6 +17,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
 import { examGuard } from './auth.guard';
 import { TestResultComponent } from './test-result/test-result.component';
+import { PlacementTestComponent } from './placement-test/placement-test.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -34,6 +36,22 @@ const routes: Routes = [
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
   { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] }
+  { path: '', redirectTo: "/home", pathMatch: "full" },
+  { path: "exercise", component: HomeComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
+  { path: "exam", component: QuestionComponent, canActivate: [AuthGuard] },
+  { path: "infinitExam", component: QuestionInfinitComponent, canActivate: [AuthGuard] },
+  { path: "infinitListeningExam", component: InfiniteQuestionsListeningComponent, canActivate: [AuthGuard] },
+  { path: "result", component: ResultsComponent, canActivate: [AuthGuard] },
+  { path: "register", component: LoginComponent },
+  { path: "signup", component: SignupComponent },
+  { path: "home", component: HomePageWithTwoButtonsComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
+  { path: "testSelection", component: SelectingExamTypeAndLengthComponentComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
+  { path: 'generate', component: QuestionGenerationComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: StudentProfileComponent, canActivate: [AuthGuard] },
+  { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
+  { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
+  { path: "placementtest", component: PlacementTestComponent, canActivate: [AuthGuard] },
+  { path: "about", component: AboutComponent },
 
 ];
 

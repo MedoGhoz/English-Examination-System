@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 const USER_EMAIL = '';
+const LEVEL = 'none';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,11 @@ export class TokenStorageService {
   public getEmail(): string | null {
     return window.sessionStorage.getItem(USER_EMAIL);
   }
-
+  public saveLevel(level: string): void {
+    window.sessionStorage.setItem(LEVEL, level);
+  }
+  public getLevel(): string  | null {
+    return window.sessionStorage.getItem(LEVEL);
+  }
 
 }

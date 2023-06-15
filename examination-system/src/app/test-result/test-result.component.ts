@@ -11,34 +11,45 @@ export class TestResultComponent implements OnInit {
   answers!: any[];
   questions: any[] = [];
   apiQuestions!: any[];
-  result: number = 0;
-  total: number = 0;
+  result: number = -1;
+  total: number = -1;
   iframeMarkup!: string;
-
+  category!: string;
   constructor(private questionService: QuestionService) { }
+ getLevel():string|null{
+return this.questionService.getLevel();
 
+ }
   ngOnInit(): void {
+    console.log(this.questionService.getCategory());
+    this.category = this.questionService.getCategory();
+    if(this.category!=undefined){
     this.questionService.getScore().subscribe({
       next: (data: any) => {
         this.result = data.score;
         this.total = data['total score'];
         console.log(data);
         this.questions = this.questionService.getterQuestions();
-        // this.formatQuestions();
         this.answers = this.questionService.getAnswers().flat();
         console.log(this.questions);
         console.log(this.answers);
 
-        // for (let i = 0; i < this.answers.length; i++) {
-        //   if (this.answers[i] == this.questions[i].answer) {
-        //     this.result++;
-        //   }
-        // }
+
         setTimeout(() => {
           this.showAudio();
         }, 0);
       }
-    });
+    });}
+else{
+        this.result = this.questionService.getPlacementTestScore();
+        this.total =50;
+        // console.log(data);
+        this.questions = this.questionService.getterQuestions();
+        this.answers = this.questionService.getAnswers().flat();
+        console.log(this.questions);
+        console.log(this.answers);}
+        console.log(this.result);
+        console.log(this.total);
   }
 
 
