@@ -20,6 +20,8 @@ import { QuestionGenerationComponent } from './question-generation/question-gene
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
 import { TestResultComponent } from './test-result/test-result.component';
+import { PlacementTestComponent } from './placement-test/placement-test.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { TestResultComponent } from './test-result/test-result.component';
     QuestionGenerationComponent,
     StudentProfileComponent,
     ExamQuestionsComponent,
-    TestResultComponent
+    TestResultComponent,
+    PlacementTestComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

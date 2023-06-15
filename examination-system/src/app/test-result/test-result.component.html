@@ -2,6 +2,9 @@
   <div class="score container">
       <div>{{result}} / {{total}}</div>
   </div>
+  <div *ngIf='this.category==undefined' class="container level">
+    <div>{{this.getLevel()}}</div>
+</div>
 </div>
 <div *ngFor="let question of questions; let i = index" class="container preview">
   <div class="card question-header" *ngIf="question.first">

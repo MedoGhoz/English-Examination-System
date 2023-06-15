@@ -1,0 +1,50 @@
+
+<section class="container">
+  <div class="row">
+      <div class="progress col-11 ">
+          <div class="progress-bar" [style.width]="(100 / NoOfQuestions) * (width+1) + '%'"></div>
+      </div>
+      <div class="col question-number">
+          <p>{{width+1}}/{{NoOfQuestions}}</p>
+      </div>
+  </div>
+
+  <div class="d-flex flex-row-reverse second-bar">
+      <div class="question-timer">
+          <span>{{minutes}}:{{seconds < 10 ? '0' +seconds:seconds}}</span>
+      </div>
+      <div class="question-type">
+          <img [src]="logoPath" height="40px" width="40px">
+      </div>
+  </div>
+  <div class="question d-flex row container">
+      <div class="col" [style.display]="display" >
+          <p *ngIf="type.toLocaleLowerCase() == 'reading'">
+              {{questions[width].paragraph}}
+          </p>
+              <div id="audio" class="video"></div>
+      </div>
+      <div class="col">
+          <div class="card text-center">
+              <div class="card-header" >
+                  {{questions[width].question}}
+              </div>
+              <div id="audio" class="video"></div>
+              <div class="card-body">
+                  <form>
+                      <div *ngFor="let choice of questions[width].choices" class="choice row">
+                          <input [id]="choice" [value]="choice" type="radio" name="selection" class="choice-radio col-1">&nbsp;&nbsp;
+                          <label [for]="choice" class="choice-label col">{{choice}}</label>
+                      </div>
+                      <input type="button" (click)="getSelection()" value="next" class="nextButton">
+                  </form>
+
+              </div>
+              <!-- <div class="card-footer text-muted">
+                  2 days ago
+              </div> -->
+          </div>
+      </div>
+
+  </div>
+</section>

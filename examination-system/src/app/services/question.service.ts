@@ -16,6 +16,8 @@ export class QuestionService {
   examDurationInMinutes:number = 5;
   data:any={};
   testId!:string;
+  placementTestScore!:number;
+  level!:string;
   constructor(private http: HttpClient,private TokenStorageService:TokenStorageService) {
 
   }
@@ -98,12 +100,27 @@ getScore():Observable<any>{
   return this.http.post(`http://localhost:4040/tests/submit`,data,httpOptions);
 
 }
+getPlacementTestScore(){
+  return this.placementTestScore;
+
+}
+setPlacementTestScore(score:number){
+  this.placementTestScore = score;
+}
+getPlacementTest():Observable<any> {
+  return this.http.get(`http://localhost:4040/tests/placement/all`);
+}
 
 
 
+setLevel(value: string) {
+  this.level = value;
+  this.TokenStorageService.saveLevel(value);
+}
 
-
-
+getLevel(): string | null {
+  return this.TokenStorageService.getLevel();
+}
 
 
 }
