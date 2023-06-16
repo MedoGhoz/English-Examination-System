@@ -23,21 +23,25 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
   answers: any[] = [];
   iframeMarkup!: string;
   color!:string;
-  fileSource: any = 'http://localhost:4040/audio';
+  fileSource: any = 'http://localhost:4040/generateListeningQuestion/audio/getAudio';
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
   ngOnInit(): void {
-
+    if(this.router.url.split("/").length == 3){
+      this.questionService.listeningLevel = this.router.url.split("/")[2]
+    }else{
+      this.questionService.listeningLevel == "A1"
+    }
     setTimeout(() => {
       this.questionService.getAudioQuestion().subscribe({
         next: (data: any) => {
-          // console.log(data);
+          console.log(data);
           this.text = data.text;
         }
       });
 
-    }, 300);
+    });
     this.getSelection();
     this.changelogo();
   }
@@ -85,8 +89,16 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
   submitQuestion() {
     console.log('submitted');
     this.submitted = true;
+    this.answer = this.answer.toLocaleLowerCase();
+    this.answer = this.answer.replace(".","");
+    this.answer = this.answer.replace(","," ");
+    this.answer = this.answer.replace(";"," ");
     let answerArr = this.answer.split(" ");
-    let textArr = this.text.toLocaleLowerCase().slice(0,-3).split(" ");    
+    this.text = this.text.toLocaleLowerCase()
+    this.text = this.text.replace(".","")
+    this.text = this.text.replace(","," ")
+    this.text = this.text.replace(";"," ")
+    let textArr = this.text.split(" ");    
     const result = document.getElementById("result");
     for (let i = 0; i < answerArr.length; i++) {
       if (textArr.includes(answerArr[i])){

@@ -16,6 +16,7 @@ export class QuestionService {
   examDurationInMinutes:number = 5;
   data:any={};
   testId!:string;
+  listeningLevel: string = "A1";
   placementTestScore!:number;
   level!:string;
   constructor(private http: HttpClient,private TokenStorageService:TokenStorageService) {
@@ -24,7 +25,7 @@ export class QuestionService {
 //practice questions  Section of our website.
   getAudioQuestion():Observable<any>{
 
-  return this.http.get(`http://localhost:4040/audio/text`);
+  return this.http.get(`http://localhost:4040/generateListeningQuestion/${this.listeningLevel}`);
   }
 
   getCheckErrorQuestions():Observable<any>{
