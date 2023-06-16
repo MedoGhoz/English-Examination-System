@@ -12,7 +12,7 @@ export class QuestionService {
 
   answers: any[] = [""];
   questions!:any[];
-  category:any='';
+  category!:any;
   examDurationInMinutes:number = 5;
   data:any={};
   testId!:string;
@@ -111,6 +111,9 @@ getPlacementTest():Observable<any> {
   return this.http.get(`http://localhost:4040/tests/placement/all`);
 }
 
+getUserTakenExams():Observable<any> {
+  return this.http.get(`http://localhost:4040/tests/${this.TokenStorageService.getEmail()}`);
+}
 
 
 setLevel(value: string) {

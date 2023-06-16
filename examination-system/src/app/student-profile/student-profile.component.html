@@ -15,14 +15,25 @@
 				<!-- <li><i class="fa fa-phone"></i><span>(555) 123-4567</span></li> -->
 				<!-- <li><i class="fa fa-map-marker"></i><span>123 Omar cairo,Egypt</span></li> -->
 			</ul>
-      <div class="buttons">
-        <!-- <button class="btn-block">
-            Personal Info.
-        </button> -->
-        <!-- <button class="btn-block">
-          Exams History
-      </button> -->
-    </div>
+      <table>
+        <tr>
+          <th>Test Id</th>
+          <th>category</th>
+          <th>Created At</th>
+          <th>Level</th>
+          <th>Score</th>
+          <th>Total</th>
+        </tr>
+        <tr *ngFor="let exam of takenExams">
+          <td>{{exam._id}}</td>
+          <td>{{exam.category}}</td>
+          <td>{{exam.createdAt}}</td>
+          <td>{{exam.level}}</td>
+          <!-- <td>{{exam.numberOfQuestions}}</td> -->
+          <td>{{exam.score}}</td>
+          <td>{{exam.numberOfQuestions}}</td>
+        </tr>
+      </table>
 		</div>
 	</div>
 </body>

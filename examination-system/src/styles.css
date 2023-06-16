@@ -14,10 +14,10 @@ body{
 
 /* Set the color of the thumb and the track of the scroll bar */
 ::-webkit-scrollbar-thumb {
-  background-color: #24394e;
+  background-color: #b5daff;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #6eb7ff;
+  background-color: #242c33;
 }

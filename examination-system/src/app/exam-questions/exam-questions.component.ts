@@ -27,7 +27,7 @@ export class ExamQuestionsComponent implements OnInit,OnDestroy{
   constructor(private questionService: QuestionService, private router: Router) {
   }
   ngOnDestroy(): void {
-    this.questionService.category=undefined;
+    // this.questionService.category=undefined;
   }
   ngOnInit(): void {
     this.startTimer();
@@ -110,6 +110,7 @@ export class ExamQuestionsComponent implements OnInit,OnDestroy{
       if (nextButton?.getAttribute("value") == "finish") {
         console.log(this.answers);
         this.questionService.setAnswers(this.arrayOfAnswers);
+        // this.questionService.setCategory()
         this.router.navigate(['/testresult']);
       }
       if (this.width < this.NoOfQuestions-1) {

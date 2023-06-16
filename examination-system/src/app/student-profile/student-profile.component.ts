@@ -13,6 +13,7 @@ export class StudentProfileComponent implements OnInit {
   level!:any;
   email!:any;
   user!:any;
+  takenExams!:any;
   constructor(private questionService:QuestionService,private UserDataService:UserDataService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,21 @@ export class StudentProfileComponent implements OnInit {
       this.user = data.user.firstName;
       this.email=data.user.email;
       console.log(this.user);
+    }})
+    this.questionService.getUserTakenExams().subscribe({next:(data:any)=>{
+      let audio = new Audio(data);
+      // audio.play()
+      console.log(data);
+      this.takenExams = data;
+      // this.questionService.settestId(data._id);
+      // if (this.apiQuestions.length==0){
+      //   alert('no questions left : )')
+      // }
+      console.log(this.takenExams);
+
+      // this.formatQuestions()
+      // this.showQuestion();
+      // this.changelogo();
     }})
   }
 
