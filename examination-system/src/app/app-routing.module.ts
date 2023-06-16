@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'profile', component: StudentProfileComponent, canActivate: [AuthGuard] },
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
-  { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] }
+  { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: "/home", pathMatch: "full" },
   { path: "exercise", component: HomeComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
   { path: "exam", component: QuestionComponent, canActivate: [AuthGuard] },
@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
   { path: "placementtest", component: PlacementTestComponent, canActivate: [AuthGuard] },
-  { path: "about", component: AboutComponent },
+  { path: "about", component: AboutComponent }
 
 ];
 

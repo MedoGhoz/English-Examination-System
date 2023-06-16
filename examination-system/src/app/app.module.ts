@@ -42,7 +42,7 @@ import { AboutComponent } from './about/about.component';
     StudentProfileComponent,
     ExamQuestionsComponent,
     TestResultComponent,
-    GrammarDemoComponent
+    GrammarDemoComponent,
     PlacementTestComponent,
     AboutComponent
   ],
