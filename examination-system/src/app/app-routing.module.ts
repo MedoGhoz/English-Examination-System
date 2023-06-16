@@ -23,6 +23,7 @@ const routes: Routes = [
   {path:"exam",component:QuestionComponent,canActivate:[AuthGuard]},
   {path:"infinitExam",component:QuestionInfinitComponent,canActivate:[AuthGuard]},
   {path:"infinitListeningExam",component:InfiniteQuestionsListeningComponent,canActivate:[AuthGuard]},
+  {path:"generateListeningDemo/:level",component:InfiniteQuestionsListeningComponent,canActivate:[AuthGuard]},
   {path:"result",component:ResultsComponent,canActivate:[AuthGuard]},
   {path:"register",component:LoginComponent},
   {path:"signup",component:SignupComponent},
