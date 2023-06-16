@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,9 +17,13 @@ import { HomePageWithTwoButtonsComponent } from './home-page-with-two-buttons/ho
 import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-type-and-length-component/selecting-exam-type-and-length-component.component';
 
 import { QuestionGenerationComponent } from './question-generation/question-generation.component';
+import { GrammarDemoComponent } from './grammar-Demo/grammar-Demo.component';
+import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
 import { TestResultComponent } from './test-result/test-result.component';
+import { PlacementTestComponent } from './placement-test/placement-test.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { TestResultComponent } from './test-result/test-result.component';
     QuestionGenerationComponent,
     StudentProfileComponent,
     ExamQuestionsComponent,
-    TestResultComponent
+    TestResultComponent,
+    GrammarDemoComponent,
+    PlacementTestComponent,
+    AboutComponent,
+    VocabDemoComponent
   ],
   imports: [
     BrowserModule,

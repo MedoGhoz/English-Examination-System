@@ -1,38 +1,32 @@
 <div id="wrapper" class="jumbotron">
   <hr />
 
-  <h2>Generate Reading Question</h2>
+  <h2>Generate Vocabulary Question</h2>
 
   <div id="generateForm row">
     <textarea
-      style="height: 240px; margin-bottom: 10px"
+      style="height: 100px; margin-bottom: 10px"
       #text
       class="form-control"
       rows="6"
-      placeholder="Document text ..."
+      placeholder="Sentence text ..."
     ></textarea>
-
-    <input
-      style="width: 200px; height: 50px; float: left; margin-right: 10px"
-      max="15"
-      min="1"
-      #n_ques
-      type="number"
-      class="form-control"
-      placeholder="Number of questions ..."
-    />
-    <input
-      style="width: 200px; height: 50px; float: left; margin-right: 10px"
-      max="20"
-      min="1"
-      #n_mcq
-      type="number"
-      class="form-control"
-      placeholder="Number of MCQs ..."
-    />
+    <div class="row">
+      <div class="col">
+        <!-- First dropdown for keys -->
+        <select class="form-select" [(ngModel)]="selectedLevel">
+          <option disabled selected value="">Select Level</option>
+          <option value="A1">A1</option>
+          <option value="A2">A2</option>
+          <option value="B1">B1</option>
+          <option value="B2">B2</option>
+          <option value="C1">C1</option>
+        </select>
+      </div>
+    </div>
     <button
       style="height: 50px; margin-top: 80px"
-      (click)="generate(text.value, n_ques.value, n_mcq.value)"
+      (click)="generate(text.value, selectedLevel)"
       type="button"
       class="btn btn-primary btn-block mb-3"
     >
@@ -73,14 +67,6 @@
       </div>
     </div>
   </div>
-  <button
-    *ngIf="questions.length"
-    style="height: 50px"
-    (click)="copyToClipboard()"
-    class="btn btn-primary btn-block mt-3 mb-3"
-  >
-    Copy to clipboard
-  </button>
 </div>
 
 <div *ngIf="isLoading" class="spinner-book" role="status">

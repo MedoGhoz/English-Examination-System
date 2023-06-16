@@ -16,14 +16,16 @@ export class QuestionService {
   examDurationInMinutes:number = 5;
   data:any={};
   testId!:string;
-  level: string = "A1";
+  listeningLevel: string = "A1";
+  placementTestScore!:number;
+  level!:string;
   constructor(private http: HttpClient,private TokenStorageService:TokenStorageService) {
 
   }
 //practice questions  Section of our website.
   getAudioQuestion():Observable<any>{
 
-  return this.http.get(`http://localhost:4040/generateListeningQuestion/${this.level}`);
+  return this.http.get(`http://localhost:4040/generateListeningQuestion/${this.listeningLevel}`);
   }
 
   getCheckErrorQuestions():Observable<any>{
@@ -99,12 +101,27 @@ getScore():Observable<any>{
   return this.http.post(`http://localhost:4040/tests/submit`,data,httpOptions);
 
 }
+getPlacementTestScore(){
+  return this.placementTestScore;
+
+}
+setPlacementTestScore(score:number){
+  this.placementTestScore = score;
+}
+getPlacementTest():Observable<any> {
+  return this.http.get(`http://localhost:4040/tests/placement/all`);
+}
 
 
 
+setLevel(value: string) {
+  this.level = value;
+  this.TokenStorageService.saveLevel(value);
+}
 
-
-
+getLevel(): string | null {
+  return this.TokenStorageService.getLevel();
+}
 
 
 }
