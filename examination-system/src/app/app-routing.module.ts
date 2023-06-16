@@ -19,6 +19,7 @@ import { examGuard } from './auth.guard';
 import { TestResultComponent } from './test-result/test-result.component';
 import { PlacementTestComponent } from './placement-test/placement-test.component';
 import { AboutComponent } from './about/about.component';
+import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -31,11 +32,9 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent },
   { path: "home", component: HomePageWithTwoButtonsComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
   { path: "testSelection", component: SelectingExamTypeAndLengthComponentComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
-  { path: 'generate', component: QuestionGenerationComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: StudentProfileComponent, canActivate: [AuthGuard] },
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
-  { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: "/home", pathMatch: "full" },
   { path: "exercise", component: HomeComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
   { path: "exam", component: QuestionComponent, canActivate: [AuthGuard] },
@@ -51,7 +50,10 @@ const routes: Routes = [
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
   { path: "placementtest", component: PlacementTestComponent, canActivate: [AuthGuard] },
-  { path: "about", component: AboutComponent }
+  { path: "about", component: AboutComponent },
+  { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] },
+  { path: 'readingDemo', component: QuestionGenerationComponent, canActivate: [AuthGuard] },
+  { path: 'vocabDemo', component: VocabDemoComponent, canActivate: [AuthGuard] },
 
 ];
 

@@ -6,7 +6,6 @@ import { GrammarDemoRequest } from '../_models/GrammarDemoRequest';
 @Component({
   selector: 'app-grammar-Demo',
   templateUrl: './grammar-Demo.component.html',
-  // styleUrls: ['./grammar-Demo.component.css', '../../../node_modules/bootstrap/dist/css/bootstrap.min.css']
   styleUrls: ['./grammar-Demo.component.css', '../_themes/minty-bootstrap.min.css']
 })
 export class GrammarDemoComponent implements OnInit {

@@ -18,6 +18,7 @@ import { SelectingExamTypeAndLengthComponentComponent } from './selecting-exam-t
 
 import { QuestionGenerationComponent } from './question-generation/question-generation.component';
 import { GrammarDemoComponent } from './grammar-Demo/grammar-Demo.component';
+import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
 import { TestResultComponent } from './test-result/test-result.component';
@@ -44,7 +45,8 @@ import { AboutComponent } from './about/about.component';
     TestResultComponent,
     GrammarDemoComponent,
     PlacementTestComponent,
-    AboutComponent
+    AboutComponent,
+    VocabDemoComponent
   ],
   imports: [
     BrowserModule,
