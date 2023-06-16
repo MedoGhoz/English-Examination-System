@@ -29,9 +29,9 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.router.url.split("/").length == 3){
-      this.questionService.level = this.router.url.split("/")[2]
+      this.questionService.listeningLevel = this.router.url.split("/")[2]
     }else{
-      this.questionService.level == "A1"
+      this.questionService.listeningLevel == "A1"
     }
     setTimeout(() => {
       this.questionService.getAudioQuestion().subscribe({
