@@ -24,6 +24,7 @@ import { ExamQuestionsComponent } from './exam-questions/exam-questions.componen
 import { TestResultComponent } from './test-result/test-result.component';
 import { PlacementTestComponent } from './placement-test/placement-test.component';
 import { AboutComponent } from './about/about.component';
+import { SpeakingDemoComponent } from './speakingDemo/speaking-demo.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AboutComponent } from './about/about.component';
     GrammarDemoComponent,
     PlacementTestComponent,
     AboutComponent,
-    VocabDemoComponent
+    VocabDemoComponent,
+    SpeakingDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { AboutComponent } from './about/about.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

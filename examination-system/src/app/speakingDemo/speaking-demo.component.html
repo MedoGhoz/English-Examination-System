@@ -1,0 +1,73 @@
+<div id="wrapper" class="jumbotron">
+  <hr />
+
+  <h2>Speaking demo Question</h2>
+
+  <div id="generateForm row">
+    <div class="row">
+      <div class="col">
+        <select class="form-select" [(ngModel)]="selectedLevel">
+          <option disabled selected value="">Select Level</option>
+          <option *ngFor="let key of getLevels()" [value]="key">{{ key }}</option>
+        </select>
+      </div>
+    </div>
+    <button
+    style="height: 50px; margin-top: 40px"
+    (click)="generate(selectedLevel)"
+    type="button"
+    class="btn btn-primary btn-block mb-3"
+    >
+    Generate
+  </button>
+</div>
+
+  <h3 class="" >{{this.sentence}}</h3>
+  <div class="container text-center my-5">
+        <div class="mx-auto">
+            <div class="d-block">
+                <audio id="player" controls [src]="this.domSanitizer.bypassSecurityTrustUrl(mediaRecorderHandler.audioUrl)"></audio>
+            </div>
+            <button class="btn btn-danger mx-2" id="recordbtn" (click)="mediaRecorderHandler.record()">Record</button>
+            <button class="btn btn-secondary mx-2" id="toggleRecordingBtn" (click)="toggleRecording($event)">Pause</button>
+            <button class="btn btn-secondary mx-2" id="stopbtn" (click)="mediaRecorderHandler.stop()">Stop</button>
+            <button class="btn btn-primary mx-2" id="submitBtn" (click)="sendAudio()">Submit</button>
+            <p class="p fs-3" id="sentence"></p>
+            <p class="p fs-3" id="matched" *ngIf="transcript">{{transcript}}</p>
+            <!-- <button class="btn btn-warning" id="newSentence">New Sentence</button> -->
+        </div>
+        <a id="download" hidden [href]="mediaRecorderHandler.audioUrl">Download</a>
+    </div>
+
+</div>
+
+<div *ngIf="isLoading" class="spinner-book" role="status">
+  <div class="spinner_overlay"></div>
+  <div class="book container d-flex align-items-center justify-content-center">
+    <div class="inner">
+      <div class="left"></div>
+      <div class="middle"></div>
+      <div class="right"></div>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
