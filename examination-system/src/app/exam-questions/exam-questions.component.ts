@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { QuestionService } from '../services/question.service';
 
 @Component({
@@ -39,6 +39,7 @@ export class ExamQuestionsComponent implements OnInit,OnDestroy{
       this.questionService.settestId(data._id);
       if (this.apiQuestions.length==0){
         alert('no questions left : )')
+        setTimeout(()=>{this.router.navigate(['/testSelection']);},40)
       }
       console.log(this.apiQuestions);
 

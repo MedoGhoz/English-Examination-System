@@ -16,10 +16,12 @@ export class HomePageWithTwoButtonsComponent implements OnInit {
     console.log(this.QuestionServie.getLevel()=='')
     let rightButton = document.getElementsByClassName('button-right')[0];
     let leftButton = document.getElementsByClassName('button-left')[0];
+    let retakeButton = document.getElementsByClassName('retake')[0];
     let rightrightbutton = document.getElementsByClassName('button-right-right')[0];
     if (this.QuestionServie.getLevel()==''){
       rightButton.classList.add('nd');
       leftButton.classList.add('nd');
+      retakeButton.classList.add('nd');
       console.log(leftButton)
       console.log(rightButton)
       const div = document.createElement('div')
@@ -30,6 +32,8 @@ export class HomePageWithTwoButtonsComponent implements OnInit {
     else{
       rightButton.classList.remove('nd');
       leftButton.classList.remove('nd');
+      retakeButton.classList.remove('nd');
+
       rightrightbutton.classList.add('nd')
     }
   }

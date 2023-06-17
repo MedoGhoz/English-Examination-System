@@ -7,6 +7,7 @@
   <div class="button-container">
   <button class="button-left" [routerLink]="['/exercise']">EXERCISE</button>
   <button class="button-right" [routerLink]="['/testSelection']">TAKE A TEST</button>
+  <button class="retake" (click)='placementTest()' [routerLink]="['/placementtest']">Retake The placemen Test ?</button>
   <button class="button-right-right" (click)='placementTest()' [routerLink]="['/placementtest']">Your Placement Test is here !</button>
 </div>
 </div>

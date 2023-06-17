@@ -29,7 +29,7 @@
   border: none;
 }
 
-.button-right {
+.button-right,.retake {
   background-color: #2b91ff;
   color: #fff;
   font-size: 2rem;
@@ -52,7 +52,7 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.button-right:hover {
+.button-right,.retake:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .button-right-right:hover {
@@ -75,7 +75,7 @@ svg{
 @media (max-width:1366px) {
   .cont{
     height: 100vh;
-
+padding: 0;
   }
   .button-container {
     margin-left: 10%;
@@ -89,15 +89,18 @@ svg{
     /* position: fixed; */
     padding-bottom:40% ;
     /* left: 20px; */
-    margin-top: 30%;
+    /* margin-top: 30%; */
   }
   .button-left {
     margin-right: 0;
     margin-bottom: 1rem;
   }
 
-  .button-right {
+  .button-right,.retake {
     margin-bottom: 1rem;
+  }
+  .retake{
+    font-size: medium;
   }
   .button-right-right {
     margin-left: 0%;
@@ -137,15 +140,16 @@ svg{
     margin-left: 20%;
     padding-top: 0;
     margin-top: 0;
+    padding-left: 0;
 
   }
 
   .button-left {
-    margin-right: 10%;
+    /* margin-right: 10%; */
     margin-bottom: 1rem;
   }
 
-  .button-right {
+  .button-right,.retake {
     margin-bottom: 1rem;
   }
   .button-right-right {
@@ -170,11 +174,11 @@ svg{
   }
   .button-left {
     margin-right: 0;
-    margin-top: 40%;
+    margin-top: 80%;
     /* margin-bottom: 70%; */
   }
 
-  .button-right {
+  .button-right,.retake {
     margin-bottom: 70%;
     margin-top: 0%;
 
@@ -197,16 +201,13 @@ svg{
     padding: 0.5rem 1rem;
     text-align: center;
   }
-  .button-left, .button-right {
+  .button-left, .button-right,.retake {
     font-size: 1.3rem;
-    padding: 0.5rem 1rem;
+    /* padding: 0.5rem 1rem; */
     text-align: center;
   }
-  .button-container{height: 100vh;text-align: center;flex-direction: column;align-items: center;}
-  svg{
-    width: 300px;
-    height: 300px;
-  }
+  .button-container{height: 100vh;text-align: center;flex-direction: column;align-items: center;width: 100%;padding: 0%;flex-direction: column;}
+
 
 }
 
