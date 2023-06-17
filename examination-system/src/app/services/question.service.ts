@@ -72,20 +72,7 @@ getExamQuestions():Observable<any> {
   this.data['level'] = 'B1'
   this.data['email'] = this.TokenStorageService.getEmail();
   this.data['size'] = this.getExamDurationInMinutes();
-  // let params = new HttpParams();
-  //   Object.keys(this.data).forEach((key) => {
-  //     params = params.append(key, this.data[key]);
-  //   });
-
-    // const headers = { 'Content-Type': 'application/json' };
-    // const options = {
-    //   headers: headers,
-    //   params: new HttpParams().set('data', JSON.stringify(this.data))
-    // };
-    // alert(`http://localhost:4040/tests/create/${this.TokenStorageService.getEmail()}/${this.getCategory()}/B2/${this.getExamDurationInMinutes()}`);
-  return this.http.get(`http://localhost:4040/tests/create/${this.TokenStorageService.getEmail()}/${this.category}/B1/${this.examDurationInMinutes}`);
-  // return this.http.get(`http://localhost:4040/tests/create/afretoucher@gmail.com/Grammar/A2/5`);
-
+  return this.http.get(`http://localhost:4040/tests/create/${this.TokenStorageService.getEmail()}/${this.category}/${this.TokenStorageService.getLevel()}/${this.examDurationInMinutes}`);
 }
 getScore():Observable<any>{
   let data = JSON.stringify({

@@ -20,6 +20,7 @@ import { TestResultComponent } from './test-result/test-result.component';
 import { PlacementTestComponent } from './placement-test/placement-test.component';
 import { AboutComponent } from './about/about.component';
 import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
+import { DemosComponent } from './demos/demos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] },
   { path: 'readingDemo', component: QuestionGenerationComponent, canActivate: [AuthGuard] },
   { path: 'vocabDemo', component: VocabDemoComponent, canActivate: [AuthGuard] },
+  { path: 'demos', component: DemosComponent, canActivate: [AuthGuard] },
 
 ];
 
