@@ -23,7 +23,7 @@ export class QuestionGenerationComponent implements OnInit {
   //   .subscribe(questions => this.questions = questions);
   // }
 
-  generate(context: string,n_ques:string, n_mcq: string): void {
+  generate(context: string, n_ques: string, n_mcq: string): void {
 
     if (!context) { return; }
 
@@ -43,19 +43,23 @@ export class QuestionGenerationComponent implements OnInit {
           const questionJson = questions[i];
           this.questions.push(JSON.parse(JSON.stringify(questionJson)))
         }
-      });
+      },
+        error => {
+          this.isLoading = false;
+        }
+      );
   }
 
-  checkAnswer(quesiton: Question, answer: string){
+  checkAnswer(quesiton: Question, answer: string) {
     return quesiton.answer == answer
   }
   copyToClipboard() {
     navigator.clipboard.writeText(JSON.stringify(this.questions))
-    .then(() => {
-      console.log('Text copied to clipboard');
-    })
-    .catch((error) => {
-      console.error('Error copying text: ', error);
-    });
+      .then(() => {
+        console.log('Text copied to clipboard');
+      })
+      .catch((error) => {
+        console.error('Error copying text: ', error);
+      });
   }
 }

@@ -36,7 +36,10 @@ export class VocabDemoComponent implements OnInit {
           const questionJson = questions[i];
           this.questions.push(JSON.parse(JSON.stringify(questionJson)))
         }
-      });
+      },
+        error => {
+          this.isLoading = false;
+        });
   }
 
   checkAnswer(quesiton: Question, answer: string) {
