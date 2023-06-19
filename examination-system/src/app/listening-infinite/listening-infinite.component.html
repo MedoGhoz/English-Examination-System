@@ -21,10 +21,7 @@
   </div>
   <div class="question d-flex row container">
     <div class="col" [style.display]="display">
-      <p *ngIf="type.toLocaleLowerCase() == 'reading'">
-        {{ questions[width].paragraph }}
-      </p>
-      <div class="audioInsert" *ngIf="type.toLocaleLowerCase() == 'listening'">
+      <div class="audioInsert">
         <!-- <audio controls class="audioQuestion">
                 <source [src]="this.fileSource" type="audio/mp3">
             </audio> -->
@@ -32,9 +29,9 @@
     </div>
     <div class="col">
       <div class="card text-center">
-        <div class="card-header">
+        <!-- <div class="card-header">
           {{ questions[width].question }}
-        </div>
+        </div> -->
         <div id="audio" class="video"></div>
         <div class="card-body">
           <!-- <div class="card-body" *ngIf='type.toLocaleLowerCase() == "listening"'>
@@ -55,46 +52,15 @@
               />
             </form>
           </div> -->
+
           <form
-            *ngIf="
-              this.type.toLocaleLowerCase() == 'reading' ||
-              this.type.toLocaleLowerCase() == 'grammar' ||
-              this.type.toLocaleLowerCase() == 'vocabulary'
-            "
-          >
-            <div
-              *ngFor="let choice of questions[width].choices"
-              class="choice row"
-            >
-              <input
-                [id]="choice"
-                [value]="choice"
-                type="radio"
-                name="selection"
-                class="choice-radio col-1"
-              />&nbsp;&nbsp;
-              <label [for]="choice" class="choice-label col">{{
-                choice
-              }}</label>
-            </div>
-            <input
-              type="button"
-              (click)="getSelection()"
-              value="next"
-              class="nextButton"
-            />
-          </form>
-          <form *ngIf="
-          !(this.type.toLocaleLowerCase() == 'reading' ||
-          this.type.toLocaleLowerCase() == 'grammar' ||
-          this.type.toLocaleLowerCase() == 'vocabulary')
-        ">
+        >
             <div class="card-header">
               <input
                 type="text"
                 placeholder="enter what you hear"
                 class="answer"
-                [(ngModel)]="listeningAnswer"
+                
               />
             </div>
             <input

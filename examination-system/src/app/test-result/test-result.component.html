@@ -12,7 +12,7 @@
       <div *ngIf="question.category.toLocaleLowerCase() == 'listening'" [id]="i" class="video"></div>
   </div>
   <div class="card text-center">
-      <div class="card-header">
+      <div class="card-header" *ngIf="this.category!='listening'">
           ({{i + 1}}) {{question.question}} <span class="not-answered">{{answers[i] =="" ? "Not Answered":""}}</span>
       </div>
       <div class="card-body">
@@ -25,6 +25,16 @@
               </div>
           </form>
       </div>
+      <div class="card-header" *ngIf="this.category=='listening'">
+        ({{i + 1}}) {{question.answer}} <span class="not-answered">{{answers[i] =="" ? "Not Answered":""}}</span>
+    </div>
+    <!-- <div class="card-body" >
+        <form>
+            <div *ngFor="let question of question" class="choice">
+
+            </div>
+        </form>
+    </div> -->
   </div>
   <hr *ngIf="i < questions.length - 1 && questions[i].header != questions[i+1].header">
 </div>

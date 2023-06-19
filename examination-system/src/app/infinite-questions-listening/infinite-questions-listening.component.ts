@@ -23,7 +23,7 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
   answers: any[] = [];
   iframeMarkup!: string;
   color!:string;
-  fileSource: any = 'http://localhost:4040/generateListeningQuestion/audio/getAudio';
+  fileSource: any = 'http://localhost:4040/generateListeningQuestion/path/getAudio';
 
   constructor(private questionService: QuestionService, private router: Router) { }
 
@@ -98,7 +98,7 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
     this.text = this.text.replace(".","")
     this.text = this.text.replace(","," ")
     this.text = this.text.replace(";"," ")
-    let textArr = this.text.split(" ");    
+    let textArr = this.text.split(" ");
     const result = document.getElementById("result");
     for (let i = 0; i < answerArr.length; i++) {
       if (textArr.includes(answerArr[i])){

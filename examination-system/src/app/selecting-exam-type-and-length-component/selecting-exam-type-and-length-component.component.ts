@@ -22,7 +22,13 @@ export class SelectingExamTypeAndLengthComponentComponent implements OnInit {
 
   selectExamLength(length: number) {
     this.examLength=length;
-    if (this.examType.toLocaleLowerCase()=='reading' || this.examType.toLocaleLowerCase()=='listening'){
+    if (this.examType.toLocaleLowerCase()=='listening'){
+      if (length==5)this.questionservice.setExamDurationInMinutes(Math.floor(5));
+      if (length==10)this.questionservice.setExamDurationInMinutes(Math.floor(10));
+      if (length==15)this.questionservice.setExamDurationInMinutes(Math.floor(15));
+
+    }
+    if (this.examType.toLocaleLowerCase()=='reading'){
       if (length==5)this.questionservice.setExamDurationInMinutes(Math.floor(1));
       if (length==10)this.questionservice.setExamDurationInMinutes(Math.floor(2));
       if (length==15)this.questionservice.setExamDurationInMinutes(Math.floor(3));
@@ -31,6 +37,10 @@ export class SelectingExamTypeAndLengthComponentComponent implements OnInit {
     else{
       this.questionservice.setExamDurationInMinutes(Math.floor(this.examLength));
     }
-    this.router.navigate(['/test']);
+    if (this.examType=="Listening")
+    this.router.navigate(['/testlistening']);
+    else{
+    this.router.navigate(['/test']);}
+
   }
 }

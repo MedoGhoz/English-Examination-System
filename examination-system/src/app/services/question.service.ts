@@ -24,7 +24,6 @@ export class QuestionService {
   }
 //practice questions  Section of our website.
   getAudioQuestion():Observable<any>{
-
   return this.http.get(`http://localhost:4040/generateListeningQuestion/${this.listeningLevel}`);
   }
 
@@ -112,6 +111,17 @@ setLevel(value: string) {
 getLevel(): string | null {
   return this.TokenStorageService.getLevel();
 }
-
-
+submitMyScore():Observable<any> {
+  let data = JSON.stringify({
+    level: this.getLevel(),
+    // answers: this.answers
+  });
+  console.log(data);
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+  return this.http.post(`http://localhost:4040/tests/placement/submit`,data,httpOptions);
+}
 }

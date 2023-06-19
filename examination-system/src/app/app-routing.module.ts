@@ -21,6 +21,7 @@ import { PlacementTestComponent } from './placement-test/placement-test.componen
 import { AboutComponent } from './about/about.component';
 import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
 import { DemosComponent } from './demos/demos.component';
+import { ListeningInfiniteComponent } from './listening-infinite/listening-infinite.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: "testSelection", component: SelectingExamTypeAndLengthComponentComponent, children: [{ path: '', component: FooterComponent }], canActivate: [AuthGuard] },
   { path: 'profile', component: StudentProfileComponent, canActivate: [AuthGuard] },
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
+  { path: 'testlistening', component: ListeningInfiniteComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
   {path:"generateListeningDemo/:level",component:InfiniteQuestionsListeningComponent,canActivate:[AuthGuard]},
   { path: "placementtest", component: PlacementTestComponent, canActivate: [AuthGuard] },

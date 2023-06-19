@@ -25,6 +25,7 @@ import { TestResultComponent } from './test-result/test-result.component';
 import { PlacementTestComponent } from './placement-test/placement-test.component';
 import { AboutComponent } from './about/about.component';
 import { DemosComponent } from './demos/demos.component';
+import { ListeningInfiniteComponent } from './listening-infinite/listening-infinite.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { DemosComponent } from './demos/demos.component';
     PlacementTestComponent,
     AboutComponent,
     VocabDemoComponent,
-    DemosComponent
+    DemosComponent,
+    ListeningInfiniteComponent
   ],
   imports: [
     BrowserModule,
