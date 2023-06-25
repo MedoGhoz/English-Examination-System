@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: 'testlistening', component: ListeningInfiniteComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
-  {path:"generateListeningDemo/:level",component:InfiniteQuestionsListeningComponent,canActivate:[AuthGuard]},
+  { path: "generateListeningDemo/:level", component: InfiniteQuestionsListeningComponent, canActivate: [AuthGuard] },
   { path: "placementtest", component: PlacementTestComponent, canActivate: [AuthGuard] },
   { path: "about", component: AboutComponent },
   { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] },
