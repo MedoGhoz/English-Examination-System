@@ -16,8 +16,9 @@ export class LevelClassificationComponent implements OnInit {
   }
 
   checkLevel(sentence:string): void {
+    
     this.levelClassification.run(sentence).subscribe((data)=>{
-        this.level = data;
+        this.level = data.level;
     });
   }
 

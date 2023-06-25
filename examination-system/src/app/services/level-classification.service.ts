@@ -7,16 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LevelClassificationService {
-
-  private LevelClassificationUrl = 'http://localhost:4040/sentence/level';
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin':"*"})
+  // };
 
   constructor(private http: HttpClient) { }
 
-  run(req: string):Observable<any>{
-    return this.http.post<any>(this.LevelClassificationUrl, req, this.httpOptions).pipe(
+  run(sentence: string):Observable<any>{
+    return this.http.get<any>(`http://localhost:4040/sentence/level/${sentence}`).pipe(
       // catchError(this.handleError<Hero>('addHero'))
     );
   }
