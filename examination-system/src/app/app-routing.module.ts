@@ -22,6 +22,7 @@ import { AboutComponent } from './about/about.component';
 import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
 import { DemosComponent } from './demos/demos.component';
 import { ListeningInfiniteComponent } from './listening-infinite/listening-infinite.component';
+import { LevelClassificationComponent } from './level-classification/level-classification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'readingDemo', component: QuestionGenerationComponent, canActivate: [AuthGuard] },
   { path: 'vocabDemo', component: VocabDemoComponent, canActivate: [AuthGuard] },
   { path: 'demos', component: DemosComponent, canActivate: [AuthGuard] },
+  { path: 'levelClassification', component: LevelClassificationComponent, canActivate: [AuthGuard] },
 
 ];
 
