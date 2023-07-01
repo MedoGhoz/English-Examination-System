@@ -26,6 +26,7 @@ import { PlacementTestComponent } from './placement-test/placement-test.componen
 import { AboutComponent } from './about/about.component';
 import { DemosComponent } from './demos/demos.component';
 import { ListeningInfiniteComponent } from './listening-infinite/listening-infinite.component';
+import { LevelClassificationComponent } from './level-classification/level-classification.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ListeningInfiniteComponent } from './listening-infinite/listening-infin
     AboutComponent,
     VocabDemoComponent,
     DemosComponent,
-    ListeningInfiniteComponent
+    ListeningInfiniteComponent,
+    LevelClassificationComponent
   ],
   imports: [
     BrowserModule,

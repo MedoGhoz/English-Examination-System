@@ -22,6 +22,7 @@ import { AboutComponent } from './about/about.component';
 import { VocabDemoComponent } from './VocabDemo/VocabDemo.component';
 import { DemosComponent } from './demos/demos.component';
 import { ListeningInfiniteComponent } from './listening-infinite/listening-infinite.component';
+import { LevelClassificationComponent } from './level-classification/level-classification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -38,13 +39,14 @@ const routes: Routes = [
   { path: 'test', component: ExamQuestionsComponent, canActivate: [AuthGuard, examGuard] },
   { path: 'testlistening', component: ListeningInfiniteComponent, canActivate: [AuthGuard, examGuard] },
   { path: "testresult", component: TestResultComponent, canActivate: [AuthGuard] },
-  {path:"generateListeningDemo/:level",component:InfiniteQuestionsListeningComponent,canActivate:[AuthGuard]},
+  { path: "generateListeningDemo/:level", component: InfiniteQuestionsListeningComponent, canActivate: [AuthGuard] },
   { path: "placementtest", component: PlacementTestComponent, canActivate: [AuthGuard] },
   { path: "about", component: AboutComponent },
   { path: "grammarDemo", component: GrammarDemoComponent, canActivate: [AuthGuard] },
   { path: 'readingDemo', component: QuestionGenerationComponent, canActivate: [AuthGuard] },
   { path: 'vocabDemo', component: VocabDemoComponent, canActivate: [AuthGuard] },
   { path: 'demos', component: DemosComponent, canActivate: [AuthGuard] },
+  { path: 'levelClassification', component: LevelClassificationComponent, canActivate: [AuthGuard] },
 
 ];
 

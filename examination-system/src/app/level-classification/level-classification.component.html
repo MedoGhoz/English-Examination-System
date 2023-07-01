@@ -1,0 +1,38 @@
+<div id="wrapper" class="jumbotron">
+    <hr />
+  
+    <h2>Level Classification</h2>
+  
+    <div id="generateForm row">
+      <textarea
+        style="height: 100px; margin-bottom: 10px"
+        #text
+        class="form-control"
+        rows="2"
+        placeholder="Sentence text ..."
+      ></textarea>
+      <button
+        style="height: 50px; margin-top: 80px"
+        (click)="checkLevel(text.value)"
+        type="button"
+        class="btn btn-primary btn-block mb-3"
+      >
+        Run
+      </button>
+    </div>
+  
+    <div style="width: 1200px" id="questionsBox" *ngIf="level">
+      <div
+        class="questionBox"
+        class="card mb-3"
+      >
+        <h5 class="card-header">Level</h5>
+  
+        <div class="card-body">
+          <h6 class="card-title">{{ level }}</h6>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
