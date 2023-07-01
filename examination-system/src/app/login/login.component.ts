@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        alert('logged in successfully');
+        // alert('logged in successfully');
         this.router.navigate(['\home']);
         setTimeout(()=>{window.location.reload()},30);
 

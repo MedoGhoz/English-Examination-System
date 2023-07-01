@@ -23,7 +23,7 @@ export class InfiniteQuestionsListeningComponent implements OnInit {
   answers: any[] = [];
   iframeMarkup!: string;
   color!:string;
-  fileSource: any = 'http://localhost:4040/generateListeningQuestion/path/getAudio';
+  fileSource: any = 'http://localhost:4040/generateListeningQuestion/audio/getAudio';
 
   constructor(private questionService: QuestionService, private router: Router) { }
 

@@ -64,7 +64,7 @@ export class ListeningInfiniteComponent implements OnInit {
       this.questionService.setCategory('listening')
   }
   startTimer() {
-    this.timeLeft = this.questionService.examDurationInMinutes*60*5;
+    this.timeLeft = this.questionService.examDurationInMinutes*60;
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
@@ -89,6 +89,7 @@ export class ListeningInfiniteComponent implements OnInit {
       // console.log(userInput)
       // console.log(userInput.textContent)
       this.arrayOfAnswers.push(userInput);
+      userInput='';
 
     if (nextButton?.getAttribute("value") == "finish") {
       let arr:string[][] = [];

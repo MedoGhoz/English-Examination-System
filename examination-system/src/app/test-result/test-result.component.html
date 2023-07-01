@@ -1,4 +1,4 @@
-<div class="result">
+<div class="result" *ngIf="this.category!=undefined">
   <div class="score container">
       <div>{{result}} / {{total}}</div>
   </div>
@@ -6,7 +6,19 @@
     <div>{{this.getLevel()}}</div>
 </div>
 </div>
-<div *ngFor="let question of questions; let i = index" class="container preview">
+<div class="result" *ngIf="this.category==undefined">
+  <div class="score-card" >
+      <h2>Score</h2>
+      <p>{{result}} / {{total}}</p>
+  </div>
+
+  <div class="english-level-card">
+      <h2>English Level</h2>
+      <p>{{this.getLevel()}}</p>
+  </div>
+</div>
+<div *ngIf="this.category!=undefined">
+<div *ngFor="let question of questions; let i = index" class="container preview" >
   <div class="card question-header" *ngIf="question.first">
       <div *ngIf="question.category.toLocaleLowerCase() == 'reading'" class="card-header">{{question.header}}</div>
       <div *ngIf="question.category.toLocaleLowerCase() == 'listening'" [id]="i" class="video"></div>
@@ -37,4 +49,5 @@
     </div> -->
   </div>
   <hr *ngIf="i < questions.length - 1 && questions[i].header != questions[i+1].header">
+</div>
 </div>
