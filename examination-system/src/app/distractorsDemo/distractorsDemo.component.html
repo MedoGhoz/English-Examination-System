@@ -1,0 +1,87 @@
+<div id="wrapper" class="jumbotron">
+  <hr />
+
+  <h2>Generate Vocabulary Question</h2>
+
+  <div id="generateForm row">
+    <textarea
+      style="height: 100px; margin-bottom: 10px"
+      #word
+      class="form-control"
+      rows="6"
+      placeholder="Word"
+    ></textarea>
+    <div class="row">
+      <div class="col">
+        <input
+          style="width: 200px; height: 50px; float: left; margin-right: 10px"
+          max="15"
+          min="1"
+          #n_mcq
+          type="number"
+          class="form-control"
+          placeholder="Number of Distractors ..."
+        />
+      </div>
+    </div>
+    <button
+      style="height: 50px; margin-top: 80px"
+      (click)="generate(word.value, n_mcq.value)"
+      type="button"
+      class="btn btn-primary btn-block mb-3"
+    >
+      Generate
+    </button>
+  </div>
+
+  <div style="width: 1200px" id="questionsBox" *ngIf="this.mcq">
+    <div class="questionBox" class="card mb-3">
+      <div class="card-body">
+        <h6 class="card-title">{{ mcq[0] }}</h6>
+      </div>
+
+      <div *ngFor="let distractor of mcq; let i = index" class="answerBox">
+        <ng-container *ngIf="i !== 0">
+          <input
+            type="text"
+            disabled
+            value="{{ distractor }}"
+            class="form-control is-valid"
+            id="inputValid"
+          />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="spinner-book" role="status">
+  <div class="spinner_overlay"></div>
+  <div class="book container d-flex align-items-center justify-content-center">
+    <div class="inner">
+      <div class="left"></div>
+      <div class="middle"></div>
+      <div class="right"></div>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>

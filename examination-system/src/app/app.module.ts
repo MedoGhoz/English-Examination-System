@@ -27,6 +27,7 @@ import { AboutComponent } from './about/about.component';
 import { DemosComponent } from './demos/demos.component';
 import { ListeningInfiniteComponent } from './listening-infinite/listening-infinite.component';
 import { LevelClassificationComponent } from './level-classification/level-classification.component';
+import { distractorsDemoComponent } from './distractorsDemo/distractorsDemo.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LevelClassificationComponent } from './level-classification/level-class
     VocabDemoComponent,
     DemosComponent,
     ListeningInfiniteComponent,
-    LevelClassificationComponent
+    LevelClassificationComponent,
+    distractorsDemoComponent
   ],
   imports: [
     BrowserModule,
