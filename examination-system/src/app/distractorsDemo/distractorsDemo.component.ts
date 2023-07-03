@@ -21,7 +21,7 @@ export class distractorsDemoComponent implements OnInit {
 
     let req = new distractorsDemoRequest()
     req.word = word.trim()
-    req.n = Number(n)
+    req.n = Number(n) + 1
 
     this.isLoading = true;
     this.distractorsDemoService.generate(req)
